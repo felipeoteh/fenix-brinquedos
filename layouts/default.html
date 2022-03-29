@@ -15,18 +15,34 @@
 
     <!-- theme styles -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/theme.min.css') }}" type="text/css">
     {% if settings.extension_id == '222' %}
         <link rel="stylesheet" href="{{ asset('css/saude-e-beleza.css') }}" type="text/css">
     {% endif %}
     <link rel="stylesheet" href="{{ asset('css/custom.css', {dynamic: true}) }}" type="text/css">
 
+    <link rel="stylesheet" href="{{ asset('css/virtualiti.css', {dynamic: true}) }}" type="text/css">
+
     <!-- tray analytics -->
     {{ tray.analytics }}
 
     <!-- google tag manager -->
     {{ googleTagManager.header(pages.current, tagManagerData) }}
+
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						primary: '#002F7E',
+						secundary: "#DE9D29",
+						cinza: "#707070",
+					}
+				}
+			}
+		}
+	</script>
 </head>
 <body>
     {{ googleTagManager.top(pages.current, tagManagerData) }}
