@@ -18,7 +18,7 @@ html .remove-bg .botao-comprar:hover,
 
 /* general buttons */
 .trigger-menu,
-.menu-mobile,
+.menu-mobile, 
 .search .search-button,
 .cart .cart-icon,
 .newsletter form button,
@@ -47,8 +47,14 @@ html .botao-commerce:link,
     background: {{ settings.color_primary }};
 }
 
+.page
+
 .smartfilter-button svg{
     fill: {{ settings.color_primary }}
+}
+
+.page-product .product-tabs #ProdAbas a{
+    color: {{ settings.color_abas }};
 }
 
 .page-product .products-visited .ValoresLista .precoAvista{
@@ -76,6 +82,8 @@ html .botao-commerce:link,
 .foo-message{
     background: {{ settings.color_footer }};
 }
+
+
 
 .foo-content h3,
 .foo-content h5,
@@ -105,14 +113,23 @@ html .botao-commerce:link,
 }
 
 .product .product-image .discount{
-    background-color: {{ settings.color_primary }};
+    background: {{ settings.color_bg_discount }};
+    color: {{ settings.color_txt_discount }};
+}
+
+.product .product-price {
+    color: {{ settings.color_price }};
 }
 
 /* MENU */
 
 /* Level 1 */
-.sidebar .main-menu{
-    background: {{ settings.color_bg_menu_1 }};
+.sidebar .main-menu{ 
+    background: {{ settings.color_bg_menu_1 }} !important;
+}
+
+.sidebar .main-menu h3{
+    color: {{ settings.color_title_font_1 }};
 }
 
 .sidebar .main-menu .link-level1{
@@ -202,8 +219,36 @@ html .botao-commerce:link,
     color: {{ settings.color_menu_font_2 }};
 }
 
+.menu-mobile .link-level3{
+    color: {{ settings.color_menu_font_3 }};
+}
 .menu-mobile .item-level3{
     background: {{ settings.color_bg_menu_3 }};
     color: {{ settings.color_menu_font_3 }};
 }
 
+.product .product-discount-recursive-desc{
+    background: {{ settings.color_bg_discount }};
+    color: {{ settings.color_txt_discount }};
+}
+
+
+.newsletter h2 span{
+    color: {{ settings.color_title_news }};
+}
+
+.newsletter h2 svg{
+    fill: {{ settings.color_title_news }};
+}
+
+.tagcloud > h3{
+    color: {{ settings.color_words }};
+}
+
+.store-rating > h3{
+    color: {{ settings.color_avaliacoes }};
+}
+.FotoLista img{
+    width: 90px;
+    height: 90px;
+}

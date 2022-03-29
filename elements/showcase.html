@@ -7,12 +7,12 @@
         <ul class="row">
         {% for product in products %}
             {% set ranking = product.ranking %}
-            <li class="col-sm-4" data-tray-tst="vitrine_produto">
+            <li class="col-sm-4" data-tray-tst="vitrine_produto" itemscope itemtype="https://schema.org/SomeProducts">
                 {% element 'snippets/product' {"product": product} %}
             </li>
             
             {% if loop.index is divisible by(3) %}
-                </ul><ul class="row">
+                </ul><ul class="row">   
             {% endif %}
             
         {% endfor %}

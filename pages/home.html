@@ -54,13 +54,7 @@
     {% endif %}
 {% endif %}
 
-{% if utils.is_mobile and settings.enable_banner_home %}
-    {% element 'snippets/banner-home' %}
-{% else %}
-    {% if not utils.is_mobile %}
-        {% element 'snippets/banner-home' %}
-    {% endif %}
-{% endif %}
+{% element 'snippets/banner-home' %}
 
 <!--banner regua -->
 {% if not utils.is_mobile and banner.extra1 %}
@@ -79,7 +73,7 @@
 } %}
 
 {% if banner.bottom %}
-    <div class="banner banner-bottom {% if not settings.enable_banner_default %}mobile-off{% endif %}">
+    <div class="banner banner-bottom ">
         {{ banner.bottom }}
     </div>
 {% endif %}

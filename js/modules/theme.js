@@ -1,6 +1,9 @@
 (function($){
     
-    $(document).ready( function(){
+    $(document).on("ready",  function(){
+
+        document.getElementById("news-name").required;
+        document.getElementById("news-email").required;
         
         // cart support class
         if($('.caixa-cupom').length){

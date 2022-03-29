@@ -647,7 +647,7 @@
             
             @media screen and (max-width: 1199px){
                 margin-bottom: 7px;
-                @include typo(1.2rem, 400, $font, 1.3rem);
+                @include typo(1.5rem, 400, $font, 1.3rem);
             }
         }
         

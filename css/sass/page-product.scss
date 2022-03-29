@@ -13,6 +13,10 @@
         }
     }
 
+    h5.produto-economize{
+       font-size: 1.6rem; 
+    }
+
     .pricing{
         font-size: 15px;
         padding: 0 0 8% 0;
@@ -380,7 +384,7 @@
         color: #aaa;
         display: block;
         margin-bottom: 15px;
-        @include typo(1.2rem, 400, $font, 1.5rem);
+        @include typo(1.6rem, 400, $font, 1.5rem);
 
         a{ color: #3d4445; }
         .dados-valor:not(.brand) { margin-left: 3px; }
@@ -390,6 +394,29 @@
     #product-priceBox{
         margin-bottom: 15px;
     }
+
+    .product-discount-recursive-tag{
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 8px;
+        width: 50%;
+        background:#3D4445;
+        text-align: center;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 2px;
+        }
+        .product-discount-recursive-desc{
+        width: 98%;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 8px;
+        background: #626262;
+        text-align: center;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 2px;
+        }  
 
     #preco{
         display: block;
@@ -659,16 +686,7 @@
         margin-bottom: 15px;
     }
 
-    #product-form-box{
-        display: block;
-        margin-bottom: 15px;
-
-        &:after{
-            clear: both;
-            content: '';
-            display: block;
-        }
-    }
+    
 
     #menuVars{
         display: block;
@@ -722,7 +740,8 @@
 
     #cepbox{
         color: #aaa;
-        @include typo(1.4rem, 400, $font, 1.4rem);
+        @include typo(1.4rem, 450, $font, 1.4rem);
+        margin-top: 10px;
 
         .cepbox-text{
             display: none;
@@ -744,6 +763,7 @@
             margin-left: 10px;
             padding: 14px;
             vertical-align: top;
+            margin-top: 10px;
 
             @media screen and (max-width: $sm){
                 margin-left: 5px;
@@ -918,7 +938,6 @@
             a{
                 background: rgba(255,255,255,.3);
                 border: 1px solid transparent;
-                color: #fff;
                 display: block;
                 padding: 22px 30px;
                 text-transform: none;
@@ -1436,6 +1455,7 @@
             // min-width: 280px;
             padding-left: 15px;
             line-height: 2;
+            font-size: 1.5rem;
 
             @media screen and (max-width: 1199px){
                 border: none;
@@ -1527,7 +1547,7 @@
 
             @media screen and (max-width: 1199px){
                 margin-bottom: 7px;
-                @include typo(1.2rem, 400, $font, 1.3rem);
+                @include typo(1.5rem, 400, $font, 1.3rem);
             }
         }
 

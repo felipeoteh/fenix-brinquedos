@@ -1,16 +1,16 @@
 <ul class="social-list">
-    {% if settings.facebook %}
+    {% if settings.social_facebook %}
     <li>
-        <a href="https://www.facebook.com/{{ settings.facebook }}" target="_blank">
+        <a href="https://www.facebook.com/{{ settings.social_facebook }}" target="_blank">
             <img src="{{ asset('img/facebook.svg') }}" alt="Facebook" width="20" height="20">
             Facebook
         </a>
     </li>
     {% endif %}
 
-    {% if settings.twitter %}
+    {% if settings.social_twitter %}
     <li>
-        <a href="https://www.twitter.com/{{ settings.twitter }}" target="_blank">
+        <a href="https://www.twitter.com/{{ settings.social_twitter }}" target="_blank">
             <img src="{{ asset('img/twitter.svg') }}" alt="Twitter" width="20" height="20">
             Twitter
         </a>
@@ -26,27 +26,27 @@
     </li>
     {% endif %}
 
-    {% if settings.youtube %}
+    {% if settings.social_youtube %}
     <li>
-        <a href="https://www.youtube.com/{{ settings.youtube }}" target="_blank">
+        <a href="https://www.youtube.com/{{ settings.social_youtube }}" target="_blank">
             <img src="{{ asset('img/youtube.svg') }}" alt="Youtube" width="20" height="20">
             YouTube
         </a>
     </li>
     {% endif %}
 
-    {% if settings.pinterest %}
+    {% if settings.social_pinterest %}
     <li>
-        <a href="https://br.pinterest.com/{{ settings.pinterest }}" target="_blank">
+        <a href="https://br.pinterest.com/{{ settings.social_pinterest }}" target="_blank">
             <img src="{{ asset('img/pinterest.svg') }}" alt="Pinterest" width="20" height="20">
             Pinterest
         </a>
     </li>
     {% endif %}
 
-    {% if settings.instagram %}
+    {% if settings.social_instagram %}
     <li>
-        <a href="https://www.instagram.com/{{ settings.instagram }}" target="_blank">
+        <a href="https://www.instagram.com/{{ settings.social_instagram }}" target="_blank">
             <img src="{{ asset('img/instagram.svg') }}" alt="Instagram" width="20" height="20">
             Instagram
         </a>

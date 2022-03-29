@@ -7,6 +7,19 @@
     .filter{
         &__block{
             margin: 10% 0;
+            &--properties{
+                overflow:auto;
+                max-height: 385px;
+
+                &::-webkit-scrollbar{
+                    background: transparent;
+                    width: 10px;
+                }
+
+                &::-webkit-scrollbar-thumb{
+                    background-color: #ccc;
+                }
+            }
         }
 
         &__title{
@@ -37,6 +50,13 @@
             font-size: 1.7rem;
             background-color: #525252;
             color: #fff;
+        }
+
+        &__name{
+            img{
+                border-radius: 19px;
+                margin: 5px 0;
+            }
         }
     }
 

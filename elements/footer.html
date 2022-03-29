@@ -68,12 +68,12 @@
             </div>
             {% endif %}
             
-            {% if settings.facebook or 
-                  settings.twitter or 
+            {% if settings.social_facebook or 
+                  settings.social_twitter or 
                   settings.whatsapp or
-                  settings.pinterest or 
-                  settings.youtube or 
-                  settings.instagram
+                  settings.social_pinterest or 
+                  settings.social_youtube or 
+                  settings.social_instagram
             %}
             <div class="col-sm-6 col-md-3 col-xs-12 social-list">
                 <h3 class="social-title">{{ Translation('redes_sociais') }}</h3>
@@ -85,7 +85,7 @@
                 <h3>{{ Translation('pagamento') }}</h3>
                 {% element 'snippets/payment-list' %}
                 
-                {% if seals.ebit or seals.hackersafe %}
+                {% if (seals.ebit or seals.hackersafe) or settings.enable_seal %}
                     <h3 class="security-title">{{ Translation('seguranca') }}</h3>
                     <ul class="foo-seals">
                         {% if seals.ebit %}
@@ -93,6 +93,9 @@
                         {% endif %}
                         {% if seals.hackersafe %}
                         <li>{{ seals.hackersafe }}</li>
+                        {% endif %}
+                        {% if settings.enable_seal %}
+                        <li>{{ settings.seal_code }}</li>
                         {% endif %}
                     </ul>
                 {% endif %}
