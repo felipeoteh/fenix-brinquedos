@@ -1,0 +1,37 @@
+<div id="barraTopo" class="hidden-xs">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-sm-2 hidden-xs">
+                <h4 class="titulo">
+                    {{ Image('logo') }}
+                </h4>
+            </div>
+            <div class="contato col-sm-4 hidden-xs">
+                <div class="canais-contato">
+                    <ul>
+                        <li class="hidden-sm">
+                            <svg class="icon"><use xlink:href="#balao-dialogo"/></svg>
+                            <a href="{{ links.contact }}">Fale conosco</a>
+                        </li>
+                        <li>
+                            <svg class="icon"><use xlink:href="#telefone"/></svg>
+                            Telefone: {{ Translation('ag_telefone_1') }}
+                        </li>
+                    </ul>
+                </div>                    
+            </div>
+            <div class="busca-cart col-sm-6">
+                <div class="row">
+                    <div class="busca borda-alpha col-sm-6">
+                        {% element 'snippets/search' %}
+                    </div>
+
+                    <div class="col-sm-6 hidden-xs">
+                        {% element 'snippets/cart' %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

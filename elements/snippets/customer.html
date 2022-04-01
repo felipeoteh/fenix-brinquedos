@@ -1,24 +1,33 @@
-<div class="customer">
-    <div class="row">
-        <div class="col-sm-7 col-md-6 login" data-tray-tst="saudacao">
-            <span class="tray-hide" data-logged-user="true">
-                {{ Translation('bem_vindo_central') }} <span data-customer="name"></span>,
-                <a href="{{ links.logout }}">{{ Translation('sair') }}</a></li>
-            </span>
-            <span class="tray-hide" data-logged-user="false">
-                {{ Translation('bem_vindo_central') }}, <a href="{{ links.login }}" data-tray-tst="login" class="{{ utils.is_https ? 'modal-login' }}">{{ Translation('login') }}</a> {{ Translation('ou') }} <a href="{{ links.register }}" data-tray-tst="cadastro">{{ Translation('cadastre_se') }}</a>
-            </span>
-        </div>
-        <div class="col-sm-5 col-md-6 orders">
-            <span class="tray-hide" data-logged-user="true">
-                <a href="{{ links.logout }}">{{ Translation('sair') }}</a>
-            </span>
-            <span class="tray-hide" data-logged-user="false">
-                <a href="{{ links.login }}" class="{{ utils.is_https ? 'modal-login' }}">{{ Translation('login') }}</a>
-            </span>
-            <a href="{{ links.orders }}" data-tray-tst="meus_pedidos">{{ Translation('meus_pedidos') }}</a>
-            <a href="{{ links.central }}" data-tray-tst="meu_cadastro">{{ Translation('acessar_conta') }}</a>
+<div class="barra-inicial fundo-secundario hidden-xs">
+    <div class="container">
+        <div class="row barra-inicial__body">
+            <div class="barra-inicial__mobile-top d-none"></div>
+            <div class="pl-sm-0 barra-inicial__l col-sm-3 d-none d-md-flex">
+                <p class="barra-inicial__text-bemvindo">Bem vindo à <strong>Mundo Ortopédico</strong>!</p>
+            </div>
 
+            <div class="pr-sm-0 barra-inicial__r canais-contato col-sm-5 col-sm-offset-4 d-none d-md-flex">
+                <ul class="barra-inicial__r-list">
+                    <li class="barra-inicial__r-item">
+                        <p class="barra-inicial__r-info">Fale Conosco {{ settings.phone }} </p>
+                    </li>
+
+                    <li class="barra-inicial__r-item">
+                        <p class="barra-inicial__r-info barra-inicial__r-info--barra"> | </p>
+                    </li>
+
+                    <li class="barra-inicial__r-item">
+                        <p class="barra-inicial__r-info">Siga-nos</p>
+                    </li>
+
+                    <li class="barra-inicial__r-item barra-inicial__r-item--icon">
+                        <a href="{{ settings.social_instagram }}"><img class="barra-inicial__r-icon" src="{{ asset('/img/rodape-instagram.svg') }}"></a>
+                    </li>
+                    <li class="barra-inicial__r-item barra-inicial__r-item--icon">
+                        <a href="{{ settings.social_facebook }}"><img class="barra-inicial__r-icon barra-inicial__r-icon--face" src="{{ asset('/img/rodape-facebook-logo.svg') }}"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

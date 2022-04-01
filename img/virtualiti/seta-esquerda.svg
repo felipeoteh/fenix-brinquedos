@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 33 32" style="enable-background:new 0 0 33 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#B9B9B9;}
+</style>
+<g id="seta-vitrine-esquerda" transform="translate(-294 -1134)">
+	<g id="Retângulo_310" transform="translate(294 1134)">
+		<g>
+			<path class="st0" d="M16,0h1c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16h-1C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>
+		</g>
+		<g>
+			<path class="st1" d="M17,32h-1C7.2,32,0,24.8,0,16S7.2,0,16,0h1c8.8,0,16,7.2,16,16S25.8,32,17,32z M16,1C7.7,1,1,7.7,1,16
+				c0,8.3,6.7,15,15,15h1c8.3,0,15-6.7,15-15c0-8.3-6.7-15-15-15H16z"/>
+		</g>
+	</g>
+	<g id="direita" transform="translate(306 1143)">
+		<g id="right-arrow_1_" transform="translate(8.315 14.153) rotate(180)">
+			<g id="Grupo_317" transform="translate(0)">
+				<g id="Caminho_273">
+					<path class="st1" d="M8.1,6.5L1.8,0.2C1.5-0.1,1-0.1,0.7,0.2L0.2,0.7c-0.3,0.3-0.3,0.8,0,1.1l5.3,5.3l-5.3,5.3
+						c-0.3,0.3-0.3,0.8,0,1.1c0,0,0,0,0,0l0.5,0.5c0.3,0.3,0.8,0.3,1.1,0l6.3-6.3C8.4,7.3,8.4,6.8,8.1,6.5L8.1,6.5z"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

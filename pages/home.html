@@ -1,83 +1,204 @@
-{% if settings.limitProducts %}
-    {% set limitProducts = settings.limitProducts %}
-{% else %}
-    {% set limitProducts = 12 %}
-{% endif %}
+<section class="bCategories">
+    <ul>
+        <li>
+            <a href="">
+                <img src="{{ themePath }}img/virtualiti/b-cate-1.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="{{ themePath }}img/virtualiti/categories/cate-2.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="{{ themePath }}img/virtualiti/categories/cate-3.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="{{ themePath }}img/virtualiti/categories/cate-4.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="{{ themePath }}img/virtualiti/categories/cate-5.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="{{ themePath }}img/virtualiti/categories/cate-6.png" alt="">
+            </a>
+        </li>
+    </ul>
+</section>
 
-{% set showAvailable = settings.show_available_products ? 'available' %}
+<!-- showcase one -->
+{% if settings.showcase_one == "featured" %}
+    {% set showcaseTitle = "Destaques" %}
 
-{% if settings.showcase == "featured" %}
-    {% set showcaseText = Translation('destaques') %}
-{% elseif settings.showcase == "new" %}
-    {% set showcaseText = Translation('lancamentos') %}
-{% elseif settings.showcase == "free_shipping" %}
-    {% set showcaseText = Translation('frete_gratis_min') %}
-{% elseif settings.showcase == "promotion" %}
-    {% set showcaseText = Translation('promocoes') %}
-{% elseif settings.showcase == "top_seller" %}
-    {% set showcaseText = Translation('mais_vendidos') %}
+ {% elseif settings.showcase_one == "new" %}
+    {% set showcaseTitle = "Lan&ccedil;amentos" %}
+
+ {% elseif settings.showcase_one == "free_shipping" %}
+    {% set showcaseTitle = "Frete Gr&aacute;tis" %}
+
+ {% elseif settings.showcase_one == "promotion" %}
+    {% set showcaseTitle = "Promo&ccedil;&otilde;es" %}
+
+ {% elseif settings.showcase_one == "top_seller" %}
+    {% set showcaseTitle = "Mais Vendidos" %}
 {% endif %}
 
 {% if showAvailable %}
-    {% if settings.showcase == "top_seller" %}
+    {% if settings.showcase_one == "top_seller" %}
     <div id="prognoos_popv1"></div>
 
         {% set products = Products({
             'filter': showAvailable,
             'limit': limitProducts,
+            'categories': [53],
             'order': {'quantity_sold': 'desc'}
         }) %}
 
     {% else %}
         {% set products = Products({
-            'filter': [showAvailable, settings.showcase],
+            'filter': [showAvailable, settings.showcase_one],
+            'categories': [53],
             'limit': limitProducts,
             'order': 'rand'
         }) %}
     {% endif %}
 
 {% else %}
-    {% if settings.showcase == "top_seller" %}
+    {% if settings.showcase_one == "top_seller" %}
     <div id="prognoos_popv1"></div>
 
         {% set products = Products({
             'filter': available,
             'limit': limitProducts,
+            'categories': [53],
             'order': {'quantity_sold': 'desc'}
         }) %}
     {% else %}
         {% set products = Products({
-            'filter': settings.showcase,
+            'filter': settings.showcase_one,
             'limit': limitProducts,
+            'categories': [53],
             'order': 'rand'
         }) %}
     {% endif %}
 {% endif %}
 
-{% element 'snippets/banner-home' %}
+{% element 'showcase' {
+    "products": products,
+    "showcaseTitle": showcaseTitle
+} %}
+</div>
+</div>
 
-<!--banner regua -->
-{% if not utils.is_mobile and banner.extra1 %}
-    <div class="banner banner-ruler">
-        {{ banner.extra1 }}
-    </div>
-{% elseif utils.is_mobile and banner.extra8 %}
-    <div class="banner banner-ruler">
-        {{ banner.extra8 }}
-    </div>
-{% endif %}
+<!-- vitrine dois -->
+<section class="maisVendidos">
+    {% set products = Products({
+        'limit': limitProducts,
+        'order': 'rand'
+    }) %}
+
+    {% element 'showcase' {
+        "products": products,
+        "showcaseTitle": "Mais Vendidos"
+    } %}
+</section>
+
+<section class="gridDupla">
+    <ul>
+        <li>
+            <a href="">
+                <img src="{{ themePath }}img/virtualiti/mini-banner-1.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="{{ themePath }}img/virtualiti/mini-banner-2.png" alt="">
+            </a>
+        </li>
+    </ul>
+</section>
+
+<!-- vitrine tres -->
+{% set products = Products({
+    'limit': limitProducts,
+    'order': 'rand'
+}) %}
 
 {% element 'showcase' {
     "products": products,
-    "showcaseTitle": showcaseText
+    "showcaseTitle": "Não pode faltar no enxoval!"
 } %}
 
-{% if banner.bottom %}
-    <div class="banner banner-bottom ">
-        {{ banner.bottom }}
-    </div>
-{% endif %}
+<!-- vitrine quatro -->
+{% set products = Products({
+    'limit': limitProducts,
+    'order': 'rand'
+}) %}
 
-{% if pages.current == 'home' %}
-	{{ banner.popup ~ banner.floating }}
-{% endif %}
+{% element 'showcase' {
+    "products": products,
+    "showcaseTitle": "Promoções"
+} %}
+
+<section class="marcasHome">   
+
+    <h2 class="showcase__titulo">
+        Compre por Marcas
+    </h2>
+
+    <ul>
+        <li>
+            <a href="/">
+                <img src="{{ themePath }}img/virtualiti/marcas/marca-1.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <img src="{{ themePath }}img/virtualiti/marcas/marca-2.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <img src="{{ themePath }}img/virtualiti/marcas/marca-3.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <img src="{{ themePath }}img/virtualiti/marcas/marca-4.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <img src="{{ themePath }}img/virtualiti/marcas/marca-5.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <img src="{{ themePath }}img/virtualiti/marcas/marca-6.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <img src="{{ themePath }}img/virtualiti/marcas/marca-3.png" alt="">
+            </a>
+        </li>
+    </ul>
+
+</section>
+
+<section class="section-insta">
+
+    <div class="title-insta">
+        SIGA-NOS 
+        <img src="{{ themePath }}img/virtualiti/instagram-plugin.svg" alt="">
+        <a href="#">@lojatalybaby</a>  
+    </div>
+
+</section>

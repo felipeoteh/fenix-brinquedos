@@ -1,0 +1,22 @@
+<div class="secao-banners">
+    <div class="container-fluid px-0">
+
+        {#{% if banner.extra3 %}
+            <div class="row banner">
+                <!--banner ruler-->
+                {% if not utils.is_mobile and banner.extra3 %}
+                    <div class="col-sm-12 banner ">
+                        {{ banner.extra3 }}
+                    </div>
+
+                {% elseif utils.is_mobile and banner.extra4 %}
+                    <div class="col-sm-12 banner ">
+                        {{ banner.extra4 }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}#}
+
+        {% element 'snippets/banner-home' %}
+    </div>
+</div>

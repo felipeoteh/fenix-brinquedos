@@ -1,0 +1,18 @@
+<div class="secao-banners secao-banners--tophome">
+    <div class="container">
+        <div class="row banner mini-banner tophome-body my-2">
+            {% if  banner.extra1 %}
+                <div class="col-md-6 col-12 my-2">
+                    {{ banner.extra1 }}
+                </div>
+            {% endif %}
+
+            {% if banner.extra2 %}
+                <div class="col-md-6 col-12 my-2">
+                    {{ banner.extra2 }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+

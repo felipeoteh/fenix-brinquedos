@@ -1,16 +1,146 @@
+
 {% if products|length > 0 %}
-    <div class="showcase-catalog clearfix col-sm-12 col-md-12" itemscope itemtype="https://schema.org/SomeProducts">
-        <ul class="row" itemscope itemtype="https://schema.org/SomeProducts">
-        {% for product in products %}
-            {% set ranking = product.ranking %}
-            <li class="col-sm-4">
-                {% element 'snippets/product' {"product": product} %}
-            </li>
-            
-            {% if loop.index is divisible by(3) %}
-            </ul><ul class="row" itemscope itemtype="https://schema.org/SomeProducts">
-            {% endif %}
-        {% endfor %}
+
+
+    {% if not settings.enable_filter %}
+        <div class="showcase-catalog clearfix col-9">
+            <div class="row">
+
+                <div class="catalog-header col-12">
+
+                    {# if banner.title %}
+                    <div class="banner banner-title ">
+                        {{ banner.title }}
+                    </div>
+                    {% endif #}
+                    <div class="row">
+                        <div class="col-12 col-md-4 justify-content-center">
+
+                            <div class="content">
+                                {{ paginate.counter('Encontramos <strong>{:count} produto(s)</strong> em <strong>{:pages} p&aacute;gina(s)</strong>') }}
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="pagination">
+                                {% element 'snippets/paginate' %}
+                            </div>
+                        </div>
+
+
+                        <div class="col-3">
+                            <div class="system-filter ">
+                                {% if settings.compare %}
+                                    <a href="/loja/comparador.php?loja={{store.id}}&IdDep={{category.id}}" class="button-compare">Comparar
+                                        Produtos</a>
+                                {% endif %}
+
+                                {% element 'snippets/filter'%}
+                                {# element 'snippets/filter' {
+                                'brands': category.brands
+                            } #}
+                            </div>
+                        </div>
+                    </div>
+                    {# if category.small_description %}
+                    <div class="category-description">
+                        {{ category.small_description }}
+                    </div>
+                    {% endif #}
+                </div>
+            </div>
+            {#<ul class="row">
+            {% for product in products %}
+                {% set ranking = product.ranking %}
+                <li class="product col-3">
+                    {% element 'snippets/product' {"product": product} %}
+                </li>
+
+                {% if loop.index is divisible by(4) %}
+
+                </ul><ul class="row">
+                {% endif %}
+            {% endfor %}
+            </ul>}#}
+            <div class="col-12">
+                <div class="catalog-footer pagination no-gutters">
+                    <div class="content">
+                        {{ paginate.counter('Encontramos <strong>{:count} produto(s)</strong> em <strong>{:pages} p&aacute;gina(s)</strong>') }}
+                    </div>
+                    {% element 'snippets/paginate' %}
+                </div>  </div>
+
+        </div>
+    {% else %}
+        <div class="showcase-catalog clearfix col-12 col-md-9">
+        <div class="row no-gutters">
+            <div class="offset-1 col-10 d-flex mb-4 flex-column px-4 justify-content-center text-center cat-name d-md-none">
+
+                {% element 'snippets/breadcrumb' %}
+                <h1>{{category.name}}</h1>
+            </div>
+            <div class="catalog-header col-10 offset-1 offset-md-0 col-md-12 pb-3">
+                {# if banner.title %}
+                    <div class="banner banner-title ">
+                        {{ banner.title }}
+                    </div>
+                    {% endif #}
+                <div class="row no-gutters catalog-header__body">
+
+                    <div class="offset-1 col-10 col-md-4 d-flex align-items-center justify-content-center d-md-none mb-4">
+                        <button class="botao-filtro filter__button">Filtrar</button>
+                    </div>
+
+                    <div class="d-none d-md-block col-md-5 cat-name text-center text-md-left">
+
+{#                        {% element 'snippets/breadcrumb' %}#}
+                        <div class="row no-gutters catalog-header__result">
+                            <div class="d-block catalog-header__result-text">
+                                {{ paginate.counter('Resultado <strong>{:count} produto(s)</strong> em <strong>{:pages} p&aacute;gina(s)</strong>') }}
+                            </div>
+                        </div>
+                        <h1>{{category.name}}</h1>
+                    </div>
+
+                    <div class="col-12 offset-md-0 col-md-4 d-flex  justify-content-center">
+                        <div class="system-filter">
+                            {% if settings.compare %}
+                                <a href="/loja/comparador.php?loja={{store.id}}&IdDep={{category.id}}" class="button-compare">Comparar
+                                    Produtos</a>
+                            {% endif %}
+
+                            {% element 'snippets/filter'%}
+                            {# element 'snippets/filter'    {
+                                'brands': category.brands
+                            } #}
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 pagination__body">
+                        <div class="pagination">
+                            {% element 'snippets/paginate' %}
+                        </div>
+                    </div>
+                </div>
+                {# if category.small_description %}
+                    <div class="category-description">
+                        {{ category.small_description }}
+                    </div>
+                    {% endif #}
+            </div>
+        </div>
+        <ul class="row">
+            {% for product in products %}
+                {% set ranking = product.ranking %}
+                <li class="product  col-12  col-md-4 my-5">
+                    {% element 'snippets/product' {"product": product} %}
+                </li>
+
+
+
+
+            {% endfor %}
         </ul>
-    </div>
+
+
+    {% endif %}
 {% endif %}

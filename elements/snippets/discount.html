@@ -1,0 +1,30 @@
+{% set price_offer = product.price_offer %}
+
+{% if promotion or price_offer > 0 and product.stock %}
+    {% set price     = product.price %}
+    {% set res_price = price - price_offer %}
+    {% set setby     = res_price / price * 100 %}
+
+    {# garante que o produto tenha a exibiÃÂ§ÃÂ£o da oferta se tiver no minimo 1% de desconto #}
+{% endif %}
+
+<div class="productlist__info info-produto">
+    <div class="bandeiras-diferentes bandeiras-diferentes--home pt-1 pb-3">
+        {% if setby >= 1 %}
+            <div class="bandeiras-produto d-flex bandeira-off">
+                <span class="bandeira-promocao">{{ setby|number_format }}% OFF</span>
+            </div>
+        {% endif %}
+        {% if product.new  == 1 %}
+            <div class="bandeiras-produto d-flex bandeira-free-shipping" >
+                {{ Image('new') }}
+            </div>
+        {% endif %}
+        {% if product.free_shipping == 1 %}
+            <div class="bandeiras-produto d-flex bandeira-free-shipping" >
+                {{ Image('free_shipping') }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+

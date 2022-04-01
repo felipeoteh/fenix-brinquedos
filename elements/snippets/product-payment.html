@@ -1,7 +1,9 @@
-<div class="product-price">
-    {% element 'snippets/price' {"product": product} %}
-</div>
-
-<div class="product-payment">
-    {{ product.payment }}
+{% element 'snippets/price' {"product": product} %}
+        
+<div>
+    {% if product.stock %}
+        <div class="preco-parcela">
+            {{ product.payment }}
+        </div>     
+    {% endif %}
 </div>

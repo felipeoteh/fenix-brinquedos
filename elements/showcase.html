@@ -1,21 +1,23 @@
+
 {% if products|length > 0 %}
-    <div class="showcase clearfix" data-tray-tst="vitrine_home">
-        <h2>
-            <small>{{ Translation('confira_tambem') }}</small>
-            <strong>{{ showcaseTitle }}</strong>
-        </h2>
-        <ul class="row">
-        {% for product in products %}
-            {% set ranking = product.ranking %}
-            <li class="col-sm-4" data-tray-tst="vitrine_produto" itemscope itemtype="https://schema.org/SomeProducts">
-                {% element 'snippets/product' {"product": product} %}
-            </li>
-            
-            {% if loop.index is divisible by(3) %}
-                </ul><ul class="row">   
-            {% endif %}
-            
-        {% endfor %}
+    <div class="showcase">
+        <div class="showcase__titulo-body">
+            <h2 class="showcase__titulo">
+                <!-- <img class="titulo-img titulo-img--before" src="{{ asset('img/coracao-titulo-vitrine.svg') }}" alt=""> -->
+                {{ showcaseTitle }}
+                <!-- <img class="titulo-img titulo-img--after" src="{{ asset('img/coracao-titulo-vitrine.svg') }}" alt=""></h2> -->
+        </div>
+
+        <ul class="produtos-carrossel row showcase__caroussel">
+            {% for product in products %}
+                <li class="col-sm-3 showcase__caroussel-item">
+                    {% element 'snippets/product' {"product": product} %}
+                </li>
+            {% endfor %}
         </ul>
     </div>
 {% endif %}
+
+
+
+

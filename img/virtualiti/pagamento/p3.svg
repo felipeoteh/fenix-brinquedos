@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="30" viewBox="0 0 46 30">
+  <g id="pagamento_caixa" transform="translate(-628 -3978)">
+    <g id="Retângulo_222" data-name="Retângulo 222" transform="translate(628 3978)" fill="#fff" stroke="#e9e9e9" stroke-width="1">
+      <rect width="46" height="30" stroke="none"/>
+      <rect x="0.5" y="0.5" width="45" height="29" fill="none"/>
+    </g>
+    <path id="Caminho_331" d="M54.542,16.907H46.5L41.8,8h8.041Z" transform="translate(604.808 3985.433)" fill="#005fab" fill-rule="evenodd"/>
+    <path id="Caminho_332" d="M58.83.1H50.789L42.5,9.007h8.041Z" transform="translate(604.974 3983.56)" fill="#f36b1a" fill-rule="evenodd"/>
+    <path id="Caminho_333" d="M38.6.1h8.041l4.7,8.907H43.3Z" transform="translate(604.05 3983.56)" fill="#005fab" fill-rule="evenodd"/>
+    <path id="Caminho_334" d="M35,16.907h8.165L51.454,8H43.412Z" transform="translate(603.196 3985.433)" fill="#f36b1a" fill-rule="evenodd"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+{% if ranking.rating != 0 %}
+    <span class="ranking">
+        {% if ranking.rating > 0 %}
+            {% for star in 1..ranking.rating %}
+                <svg class="icon" width="17" height="17"><use xlink:href="#star-enable"/></svg>
+            {% endfor %}
+        {% endif %}
+        
+        {% if ranking.rating < 5 %}
+            {% for j in 1..5 % ranking.rating %}
+                <svg class="icon" width="17" height="17"><use xlink:href="#star-disable"/></svg>
+                
+            {% endfor %}
+        {% endif %}
+        <span>({{ ranking.count }})</span>
+    </span>
+{% endif %}

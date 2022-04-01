@@ -36,15 +36,15 @@
 </span>
 {% endif %} 
 
-	
+    
 {% if product.ranking.count %}
 <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
     <meta itemprop="reviewCount" content="{{ product.ranking.count }}" /> 
     <meta itemprop="ratingValue" content="{{ product.ranking.rating }}" /> 
-</span>		
+</span>     
 {% endif %}
 
-{% set image = product.images[0].large ?: tray.paths.system_image ~ "/new_imgoff.png" %}	
+{% set image = product.images[0].large ?: tray.paths.system_image ~ "/new_imgoff.png" %}    
 <img itemprop="image" src="{{ image }}" alt="{{ product.name|e }}" class="tray-hide"/>
 
 {% if product.comments %}

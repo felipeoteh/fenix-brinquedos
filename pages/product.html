@@ -1,139 +1,240 @@
 {% if banner.title %}
-    <div class="banner banner-title ">
+    <div class="banner banner-title mobile-off">
         {{ banner.title }}
     </div>
-{% endif %}
-
+{% endif %} 
 {% for discount in ProgressiveDiscounts %}
-{% if discount.banner %}
-   <img src="{{ discount.banner }}" alt="{{discount.name}}"/>  
-{% endif %}
+    {% if discount.banner %}
+        <img src="{{ discount.banner }}" alt="{{discount.name}}"/>
+    {% endif %}
 {% endfor %}
 
 
-<section id="product-container" class="produto-wrapper product-detail" itemscope itemtype="http://schema.org/Product">
-    {% element 'snippets/schema-product' %}
-    <div class="clearfix">
 
-        {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}
+<section id="product-container" class="produto-wrapper product-detail mt-4" itemscope itemtype="http://schema.org/Product">
+    {% element 'snippets/schema-product' {'product': product} %}
 
-        <div class="col-md-6 product-colum-left">
+    <span id="span_erro_carrinho"></span>
+    <div class="row no-gutters">
+        <div class="col-12 py-1"> {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}</div>
+        <div class="col-10 offset-1 offset-md-0 col-md-5 col-galeria">
+
 
             {% if product.images %}
-                <div id="visualBlock" class="product-gallery {{ product.images|length  <= 1 and not product.video ? 'hide-carousel' }}">
+
+                <div id="visualBlock" class="product-gallery">
+                    <div class="product-labels">
+                        {% for discount in ProgressiveDiscounts %}
+
+                            {% if discount.tag %}
+                                <span class="botao-commerce botao-lancamento botao-frete-desconto">
+                        {{discount.tag}}
+                    </span>
+                            {% endif %}
+                        {% endfor %}</div>
                     {{ productHelper.gallery() }}
+
                 </div>
+
+                {#} div class="galeria-produto">  {% set images = product.images %}
+    <img src="{{ images[0].full }}" alt="">
+</div
+-->
+{#
+<div id="prev_personalizado">
+    <svg xmlns="http://www.w3.org/2000/svg" width="13.621" height="7.378" viewBox="0 0 13.621 7.378"><g transform="translate(0 -117.336)"><g transform="translate(0 117.336)"><path d="M.167,124.548a.567.567,0,0,0,.8,0l5.842-5.841,5.841,5.841a.567.567,0,0,0,.8-.8L7.212,117.5a.567.567,0,0,0-.8,0L.167,123.745A.567.567,0,0,0,.167,124.548Z" transform="translate(0 -117.336)"/></g></g></svg>
+</div>
+
+<ul id="galeria-produto">
+
+    {% for image in images %}
+    <li data-thumb="{{image.full}}" >
+        <div class="product-labels">
+            {{ productHelper.labels() }}
+
+            {% for discount in ProgressiveDiscounts %}
+            {% if discount.tag %}
+                <span class="botao-commerce botao-lancamento botao-frete-desconto">
+                    {{discount.tag}}
+                </span>
+            {% endif %}
+        {% endfor %}
+
+        </div>
+            {#<img src="{{image.full}}" class="img-fluid mx-auto  d-block" />
+            <div class="drift-zoom" data-zoom="{{image.full}}">
+                    <img src="{{image.full}}" alt="{{ product.name }}" title="{{ product.name }}"  />
+            </div>
+        </li>
+    {% endfor %}
+
+</ul>
+<div id="next_personalizado">
+    <svg xmlns="http://www.w3.org/2000/svg" width="13.621" height="7.378" viewBox="0 0 13.621 7.378"><g transform="translate(0 -117.336)"><g transform="translate(0 117.336)"><path d="M.167,124.548a.567.567,0,0,0,.8,0l5.842-5.841,5.841,5.841a.567.567,0,0,0,.8-.8L7.212,117.5a.567.567,0,0,0-.8,0L.167,123.745A.567.567,0,0,0,.167,124.548Z" transform="translate(0 -117.336)"/></g></g></svg>
+</div>
+                #}
+
             {% else %}
                 <div class="product-gallery no-image">
                     <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada">
                 </div>
             {% endif %}
 
-			{% if settings.social_position == 0 %}
-				<div class="product-social sidepicture">
-					{{ productHelper.social() }}
-				</div>
-			{% endif %}
+            {# if settings.social_position == 0 %}
+                <div class="product-social sidepicture">
+                    {{ productHelper.social() }}
+                </div>
+            {% endif #}
 
-            <div class="product-labels">
-                {{ productHelper.labels() }}
-            </div>
-
-            <ul class="product-links">
-                <li class="product-links-item">
-                    <a class="botao_indique_amigo" data-url="{{ links.product_recommend }}&IdProd={{ product.id }}" data-title="{{ product.name }}" data-toggle="modal" data-target="#modal-form" data-modal-width="600px" href="#">{{ Translation('indique_amigo') }}</a>
-                </li>
-
-                <li class="product-links-item">
-                    <a class="botao_tire_duvidas" data-url="{{ links.product_question }}&IdProd={{ product.id }}" data-title="{{ product.name }}" data-toggle="modal" data-target="#modal-form" data-modal-width="600px" href="#">{{ Translation('tire_duvidas') }}</a>
-                </li>
-
-                <li class="product-links-item">
-                    <span class="product-compare" id="product-compare">
-                    {% if settings.compare %}
-                        <span id="comparar">
-                            {% element 'product/compare' {
-                                'product': product,
-                                'links': links
-                            } %}
-                        </span>
-                    {% endif %}
-                    </span>
-                </li>
-            </ul>
         </div>
 
-        <div class="col-md-6 product-colum-right">
+        <div class="col-10 offset-1 offset-md-0 col-md-7 col-infos pl-md-5">
             {% if productHelper.banner() %}{{ productHelper.banner() }}{% endif %}
-
             <h1 class="product-name" itemprop="name">{{ product.name }}</h1>
-            {% element 'product/rating' %}
+            {% element 'snippets/ranking' %}
+            <div class="d-flex align-items-center wrapper-flex-elements metadados justify-content-center justify-content-md-start">
 
-            {% for discount in ProgressiveDiscounts %}
-            {% if discount.tag %}
-                <div class="product-discount-recursive-tag">{{discount.tag}}</div>
-                <div class="product-discount-recursive-desc">{{discount.description}}</div>
-            {% endif %}
-            {% endfor %}
+            <span class="referencia">
+                {% if product.brand %}
+                    Marca: <strong> {{product.brand}}     </strong>
+                {% endif %}</span>
 
-            <p class="product-details">
+                <span class="referencia">
+
+            {% if product.reference %}
+                Referência: <strong> {{product.reference}}     </strong>
+            {% endif %}</span></div>
+            <div class="separador-produto"></div>
+            {% element 'snippets/discount' %}
+
+            {#<p class="product-details">
                 {% if settings.show_product_stock %}
                     <span>Estoque: <b>{{ product.stock }}</b></span>
                 {% endif %}
                 {{ productHelper.details() }}
                 {{ productHelper.icons() }}
-            </p>
-            {{ productHelper.bonus() }}
-            <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}">
-                
-                {% if settings.cache_infopreco %}
+            </p>#}
+            {# productHelper.bonus() #}
+
+            </pre>
+            <!-- <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}"> -->
+            {% if settings.cache_infopreco %}
                 <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
                     <div class="pricing">
                         Carregando...
                     </div>
                 </div>
-                {% else %}
-                    {{ productHelper.pricing() }}
-                {% endif %}
-                
-                {{ productHelper.variants() }}
-                {{ productHelper.gifts() }}
+            {% else %}
+                {{ productHelper.pricing() }}
+            {% endif %}
+
+            <div class="pp-uwu-details">
+                <a href="#" class="open-details"> Ver mais detalhes</a>
+                <p class="product-details">
+                    {% if settings.show_product_stock %}
+                        <span>Estoque: <b>{{ product.stock }}</b></span>
+                    {% endif %}
+                    {{ productHelper.details() }}
+                    {{ productHelper.icons() }}
+                </p>
+            </div>
+
+            {% if product.available %}
                 {{ product.additional_information }}
-                <div>
-                {{ productHelper.form() }}
-                </div>
+                {{ productHelper.gifts() }}
                 {{ productHelper.kit() }}
-                {% if not product.upon_request and product.available %}
-                    {{ productHelper.wishlist() }}
+
+                {% if not product.has_variation %}
+                    <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}">
+
+                        {% if not product.upon_request %}
+                            {% element 'snippets/botoes_qty' %}
+                            {{ productHelper.wishlist() }}
+
+                        {% endif %}
+
+                        <div class="shipping-result"></div>
+
+                    </form>
+                {% else %}
+                    {#<button class="variacao-btn-scroll variacao-cor">
+                        Selecione as variações abaixo
+                        <i style="margin-left: 5px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </i>
+                    </button>#}
+                    <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}" class="variacao-outra">
+                        {{ productHelper.variants() }}
+                        {% element 'snippets/botoes_qty' %}
+                    </form>
+
                 {% endif %}
-                {{ productHelper.shipping() }}
+
 
                 {% if product.additional_message %}
-                <div class="additional-message">
-                    {{ product.additional_message }}
-                </div>
+                    <div class="mensagem_adicional">{{ product.additional_message }}</div>
                 {% endif %}
-            </form>
+            {% endif %}
 
-			{% if settings.social_position == 1 %}
-				<div class="product-social">
-					{{ productHelper.social() }}
-				</div>
-			{% endif %}
+            <ul class="row align-items-center mb-3 shipping-custom-css no-gutters">
+
+                <li class="calc-frete col-md-12 pt-3 d-flex flex-column flex-sm-row align-items-start align-items-center">
+                    <div class="mr-3 calc-frete-txt ">Calcular seu frete:</div> {{ productHelper.shipping() }}
+                </li>
+                <li class="col-md-12 pt-1 mt-5 d-flex social-size justify-content-center justify-content-md-start">
+                    Compartilhe nas Redes Sociais
+                </li>
+                <li class="col-md-12 pt-3 d-flex justify-content-center justify-content-md-start">
+                    {{ productHelper.social() }}</li>
+            </ul>
+            {% if settings.social_position == 1 %}
+                {# <div class="product-social d-flex align-items-center">
+                  productHelper.social()
+                </div> #}
+            {% endif %}
         </div>
+
+        {% if product.has_variation %}
+            {#<div class="secao-variacoes">
+                <div class="titulo-variacoes">
+                    <div class="divisoria-variacoes"></div>
+                    SELECIONE SUAS VARIAÇÕES
+                </div>
+                <div class="subtitulo-variacoes">Escolha o modelo e a quantidade que deseja e depois clique em <strong>COMPRAR</strong></div>
+            </div>
+            <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}" class="variacao-cor lista-variacoes-cor">
+                {{ productHelper.variants() }}
+                {% element 'snippets/botoes_qty' %}
+            </form>#}
+        {% endif %}
     </div>
 </section>
+
+
+
 
 <section id="ProdBlock" class="product-tabs">
     <a name="formaPagto"></a>
     <div id="ProdAbas" class="abasProduto tab-panel">
-        <ul class="clearfix">
+        <ul class="clearfix flex-md-row">
             {% for key, tab in productTabs %}
-              {% if tab.container_id %}
-              <li id="{{ tab.id }}" {% if key=='description' %}class="aberta" {% endif %}>
-                <a href="#" data-tab-container-id="{{ tab.container_id }}" data-tab-url="{{ tab.url }}">{{ tab.description }}</a>
-              </li>
-              {% endif %}
+
+                {% if tab.container_id %}
+                    <li id="{{ tab.id }}" {% if key=='description' %}class="aberta" {% endif %} >
+                        <a href="#" data-tab-container-id="{{ tab.container_id }}" data-tab-url="{{ tab.url }}">
+                            {% if key=='description' %}<span> Descri&ccedil;&atilde;o</span>
+                            {% else %}
+                                <span> {{ tab.description }}</span>
+                            {% endif %}
+
+                        </a>
+
+                    </li>
+                    {% if loop.index is not divisible by(2) %}
+                        <li class="d-none d-md-list-item"><a><span>|</span></a></li>
+                    {% endif %}  {% endif %}
             {% endfor %}
         </ul>
     </div>
@@ -168,50 +269,54 @@
     {{ productTabs.downloads.content }}
 
     <div id="garantia" class="prodBox">
-        <img class="loader" src="{{ tray.paths.system_image }}/big-loading.svg"  />
+        <img class="loader" src="{{ tray.paths.system_image }}/big-loading.svg" style="display:none;" />
     </div>
-    <div data-app="product.payment-methods" id="formasPagto" class="prodBox"  ></div>
+    <div data-app="product.payment-methods" id="formasPagto" class="prodBox" style="display:none;" ></div>
 </section>
 
 {% if productHelper.bundle() %}
-<section class="product-cross-sell">
-    <h4>{{ Translation('confira_tambem') }}</h4>
-    <h3>{{ Translation('compre_junto') }}</h3>
-    {{ productHelper.bundle() }}
-</section>
+    <section class="product-cross-sell">
+        <h3 class="compre-junto-title-body">
+            <img class="titulo-img titulo-img--before" src="{{ asset('img/coracao-titulo-vitrine.svg') }}" alt="">
+            Compre Junto
+            <img class="titulo-img titulo-img--after" src="{{ asset('img/coracao-titulo-vitrine.svg') }}" alt=""></h2>
+        </h3>
+        {{ productHelper.bundle() }}
+    </section>
 {% endif %}
 
 
 {% if product.related_products %}
-<div id="prognoos_lsi"></div>
-<section class="products-related">
-    <h4>{{ Translation('confira_tambem') }}</h4>
-    <h3 class="related-title">{{ Translation('produtos_relacionados') }}</h3>
-    <div class="row">
-        {% for related in product.related_products %}
-            <div class="col-sm-3">
-                {% element 'snippets/product' {"product": related} %}
-            </div>
-        {% endfor %}
-    </div>
-</section>
-{% endif %}
-
-<div id="prognoos_ib"></div>
-{% if settings.history_position == 1 %}
-    <section class="products-visited col-sm-12">
-        <h4>{{ Translation('confira_tambem') }}</h4>
-        <h3 class="related-title">{{ Translation('produtos_visitados') }}</h3>
-        {% element 'snippets/history' {
-            'store.id': store.id,
-            'pages.current': pages.current,
-            'category.id': category.id
-        } %}
+    <div id="prognoos_lsi"></div>
+    <section class="products-related">
+        <div class="related-title-body">
+            <h3 class="related-title">
+                <img class="titulo-img titulo-img--before" src="{{ asset('img/coracao-titulo-vitrine.svg') }}" alt="">
+                Produtos Relacionados
+                <img class="titulo-img titulo-img--after" src="{{ asset('img/coracao-titulo-vitrine.svg') }}" alt=""></h2>
+            </h3>
+        </div>
+        <div class="row produtos-carrossel no-gutters">
+            {% for related in product.related_products %}
+                <div class="listagem-item product related-product-item">
+                    {% element 'snippets/product' {"product": related} %}
+                </div>
+            {% endfor %}
+        </div>
     </section>
 {% endif %}
 
-{% if banner.bottom %}
-    <div class="banner banner-bottom ">
+<div id="prognoos_ib"></div>
+{# if settings.history_position == 1 %}
+        <section class="products-visited">
+            <h4>Confira os produtos</h4>
+            <h3 class="related-title">Visitados</h3>
+            {% element 'snippets/history' %}
+        </section>
+    {% endif #}
+
+{# if banner.bottom %}
+    <div class="banner banner-bottom mobile-off">
         {{ banner.bottom }}
     </div>
-{% endif %}
+{% endif #}

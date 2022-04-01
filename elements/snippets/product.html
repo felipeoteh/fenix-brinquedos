@@ -1,76 +1,100 @@
-<div itemid="{{ product.id }}" class="product{{ product.has_other_prices ? ' has-other-prices' }}">
-    <a href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
-        <div class="product-image">
-            {% if product.images %}
-                {% if utils.is_mobile %}
-                    <img itemprop="image" src="{{ product.images[0].large }}" alt="{{ product.name }}" title="{{ product.name }}">
-                {% else %}
-                    <img itemprop="image"  data-original="{{ product.images[0].large }}" class="lazy" src="{{ asset('img/loading.svg') }}" alt="{{ product.name }}" title="{{ product.name }}">
-                {% endif %}
-            {% else %}
-                <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="100" title="{{ product.name }}">
-            {% endif %}
-            
-            {% if settings.discount %}
-                {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
-                {% if porcentagemDesconto < 100 %}
-                  <span class="discount"> {{ porcentagemDesconto|number_format }}% de desconto </span>
-                {% endif %}  
-            {% endif %}             
-        </div>
-    
-        <div class="product-name" itemprop="name">{{ product.name }}</div>
-
-         <meta itemprop="productID" content="{{ product.id }}"/>
-        <meta itemprop="sku" content="{{ product.id }}"/>
-        {% if product.ean %}
-            <meta itemprop="gtin14" content="{{ product.ean }}">
-        {% endif %}
-        
-        {% if product.description_small %}
-            <meta itemprop="description" content="{{ product.description_small }}">
-        {% endif %}
-
-        
-        {% if product.brand %}
-        <span itemprop="brand" itemscope itemtype="http://schema.org/Organization">
-            <meta itemprop="name" content="{{ product.brand }}"/>
-        </span>
-        {% endif %} 
-
-
-        {% for discount in product.ProgressiveDiscounts %}
-        {% if discount.tag %}
-            <div class="product-discount-recursive-tag">{{discount.tag}}</div>
-            <div class="product-discount-recursive-desc">{{discount.description}}</div>
-        {% endif %}
-    {% endfor %} 
-    
-        {% if settings.cache_infopreco %}
-        <div data-module="pricing" data-snippet="snippets/product-payment" data-product-id="{{ product.id }}">
-            <div class="pricing">
-                Carregando...
-            </div>
-        </div>
-        {% else %}
-            {% element 'snippets/product-payment' {"product": product } %}
-        {% endif %}
-        
-    </a>
-    
-    {% if pages.current == 'catalog' and settings.compare %}
-    <div class="compare-buttons">
-        {% set compareCSS = 'compare-hidden' %}
-
-        <a data-compare="remove" href="{{ links.compare_delete ~ product.id }}" class="{{ not product.compare ? compareCSS }}">
-            <span class="filter-checkbox checked"></span>
-            {{ Translation("remover_comparar") }}
-        </a>
-        
-        <a data-compare="add" href="{{ links.compare_add  ~ product.id }}" class="{{ product.compare ? compareCSS }}">
-            <span class="filter-checkbox"></span>
-            {{ Translation("comparar_produto") }}
-        </a>
-    </div>
+<div class="productlist listagem-item product product-item" itemscope
+     itemtype="http://schema.org/Product">
+    {% if product.ean %}
+        <meta itemprop="gtin14" content="{{ product.ean }}">
     {% endif %}
+
+    {% if product.description_small %}
+        <meta itemprop="description" content="{{ product.description_small }}">
+    {% endif %}
+
+    {% if product.brand %}
+        <span itemprop="brand" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="{{ product.brand }}"/>
+    </span>
+    {% endif %}
+
+    <meta itemprop="productID" content="{{ product.id }}"/>
+    <meta itemprop="sku" content="{{ product.id }}"/>
+
+    <figure class="productlist__produto-img-body">
+        <div class="bandeiras-diferentes bandeiras-diferentes--home pt-1 pb-3">
+            {% set price_offer = product.price_offer %}
+
+            {% if promotion or price_offer > 0 and product.stock %}
+                {% set price     = product.price %}
+                {% set res_price = price - price_offer %}
+                {% set setby     = res_price / price * 100 %}
+
+                {# garante que o produto tenha a exibição da oferta se tiver no minimo 1% de desconto #}
+
+
+            {% endif %}
+
+
+            {% if setby >= 1 %}
+                <div class="bandeiras-produto d-flex justify-content-center align-items-center bandeira-off">
+                    <span class="bandeira-promocao">{{ setby|number_format }}% OFF</span>
+                </div>
+            {% endif %}
+            {% if product.new  == 1 %}
+                <div class="bandeiras-produto d-flex bandeira-free-shipping" >
+                    {{ Image('new') }}
+                </div>
+            {% endif %}
+            {% if product.free_shipping == 1 %}
+                <div class="bandeiras-produto d-flex bandeira-free-shipping" >
+                    {{ Image('free_shipping') }}
+                </div>
+            {% endif %}
+
+        </div>
+
+        <a href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" itemprop="url">
+            {% if product.images %}
+                <img src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}"
+                     itemprop="image" class="productlist__produto-img">
+            {% else %}
+                <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada"
+                     title="{{ product.name }}" width="100" class="productlist__produto-img productlist__produto-img--noimg">
+            {% endif %}
+        </a>
+
+
+    </figure>
+
+    <div class="productlist__info info-produto">
+
+        <a href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" itemprop="url"
+           class="productlist__info-name nome-produto"><span itemprop="name">{{ product.name }}</span></a>
+        <!--<div data-trustvox-product-code="14582463" class="hide trustvox-stars"></div>-->
+
+        {% element 'snippets/ranking' {"ranking": product.ranking } %}
+
+        {% if settings.cache_infopreco %}
+            <div data-module="pricing" data-snippet="snippets/product-payment" data-product-id="{{ product.id }}">
+                <div class="productlist__info-pricing">
+                    Carregando...
+                </div>
+            </div>
+        {% else %}
+            {% element 'snippets/product-payment' {"product": product} %}
+        {% endif %}
+
+
+
+        {% if pages.current == 'catalog' %}
+            {% element 'snippets/compare' {"product": product} %}
+        {% endif %}
+
+        <div class="productlist__actions">
+            <a href="{{ product.link }}" title="Ver detalhes do produto" class="productlist__actions-btn">
+               COMPRAR
+            </a>
+        </div>
+    </div><!-- - product-description -->
+
+
+
+
 </div>
