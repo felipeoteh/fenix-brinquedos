@@ -21,8 +21,7 @@
                 {% endif %}
                     
                 {% if product.price_offer > 0 and product.show_price %}
-                    <div class="price-before {{ priceStyle }}">
-                                      
+                    <div class="price-before {{ priceStyle }} hidden">           
                         <div>
                             {{ priceOld }} <abbr class="currency" title="BRL">{{ settings.currency }}</abbr> {{ product.price|currency }}
                         </div>

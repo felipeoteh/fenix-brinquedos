@@ -11652,7 +11652,7 @@ html.menu-open .backdrop-icon {
 
 .listagem-item .product-price .price-promotion {
     display: inline-block;
-    color: #ed6bbc;
+    color: var(--secundary);
     font-weight: 700;
     font-size: 20px
 }

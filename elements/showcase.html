@@ -1,20 +1,57 @@
 
 {% if products|length > 0 %}
-    <div class="showcase">
-        <div class="showcase__titulo-body">
-            <h2 class="showcase__titulo">
-                <!-- <img class="titulo-img titulo-img--before" src="{{ asset('img/coracao-titulo-vitrine.svg') }}" alt=""> -->
-                {{ showcaseTitle }}
-                <!-- <img class="titulo-img titulo-img--after" src="{{ asset('img/coracao-titulo-vitrine.svg') }}" alt=""></h2> -->
-        </div>
 
-        <ul class="produtos-carrossel row showcase__caroussel">
-            {% for product in products %}
-                <li class="col-sm-3 showcase__caroussel-item">
-                    {% element 'snippets/product' {"product": product} %}
-                </li>
-            {% endfor %}
-        </ul>
+    <div class="showcase__titulo-body">
+        <h2 class="showcase__titulo">
+            {{ showcaseTitle }}
+        </h2>  
+    </div>
+
+    <div class="showcase max-w-full w-full flex gap-4">
+
+        {% if numberShowcase == 1 %}
+        
+            <div class="bannerVitrine1 w-[300px]">
+                <img src="{{ themePath }}img/virtualiti/banners/banner-vitrine-1.png" alt="">
+            </div>
+
+            <ul class="produtos-carrossel-2 row showcase__caroussel flex-1 max-w-[980px]">
+                {% for product in products %}
+                    <li class="col-sm-3 showcase__caroussel-item">
+                        {% element 'snippets/product' {"product": product} %}
+                    </li>
+                {% endfor %}
+            </ul>
+
+        {% endif %}
+        
+        {% if numberShowcase == 2 %}
+
+            <ul class="produtos-carrossel-2 row showcase__caroussel flex-1 max-w-[980px]">
+                {% for product in products %}
+                    <li class="col-sm-3 showcase__caroussel-item">
+                        {% element 'snippets/product' {"product": product} %}
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <div class="bannerVitrine2 w-[300px]">
+                <img src="{{ themePath }}img/virtualiti/banners/banner-vitrine-2.png" alt="">
+            </div>
+            
+        {% endif %}
+
+        {% if numberShowcase == 3 %}
+
+            <ul class="produtos-carrossel row showcase__caroussel flex-1 max-w-full">
+                {% for product in products %}
+                    <li class="col-sm-3 showcase__caroussel-item">
+                        {% element 'snippets/product' {"product": product} %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
     </div>
 {% endif %}
 

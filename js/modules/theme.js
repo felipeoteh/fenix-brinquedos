@@ -53,7 +53,7 @@
                 '\t.st1{fill:#B9B9B9;}\n' +
                 '</style>\n' +
                 '<g id="seta-vitrine-esquerda" transform="translate(-293 -1134)">\n' +
-                '\t<g id="Retângulo_310" transform="translate(293 1134)">\n' +
+                '\t<g id="Retï¿½ngulo_310" transform="translate(293 1134)">\n' +
                 '\t\t<g>\n' +
                 '\t\t\t<path class="st0" d="M16,0L16,0c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16l0,0C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>\n' +
                 '\t\t</g>\n' +
@@ -81,7 +81,7 @@
                 '\t.st1{fill:#B9B9B9;}\n' +
                 '</style>\n' +
                 '<g id="seta-vitrine-direita" transform="translate(-1595 -1134)">\n' +
-                '\t<g id="Retângulo_311" transform="translate(1627 1166) rotate(180)">\n' +
+                '\t<g id="Retï¿½ngulo_311" transform="translate(1627 1166) rotate(180)">\n' +
                 '\t\t<path class="st0" d="M16,0L16,0c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16l0,0C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>\n' +
                 '\t\t<g>\n' +
                 '\t\t\t<path class="st1" d="M16,0c8.8,0,16,7.2,16,16c0,8.8-7.2,16-16,16S0,24.8,0,16C0,7.2,7.2,0,16,0z M16,31c8.3,0,15-6.7,15-15\n' +
@@ -150,7 +150,7 @@
                     '\t.st1{fill:#B9B9B9;}\n' +
                     '</style>\n' +
                     '<g id="seta-vitrine-esquerda" transform="translate(-293 -1134)">\n' +
-                    '\t<g id="Retângulo_310" transform="translate(293 1134)">\n' +
+                    '\t<g id="Retï¿½ngulo_310" transform="translate(293 1134)">\n' +
                     '\t\t<g>\n' +
                     '\t\t\t<path class="st0" d="M16,0L16,0c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16l0,0C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>\n' +
                     '\t\t</g>\n' +
@@ -178,7 +178,7 @@
                     '\t.st1{fill:#B9B9B9;}\n' +
                     '</style>\n' +
                     '<g id="seta-vitrine-direita" transform="translate(-1595 -1134)">\n' +
-                    '\t<g id="Retângulo_311" transform="translate(1627 1166) rotate(180)">\n' +
+                    '\t<g id="Retï¿½ngulo_311" transform="translate(1627 1166) rotate(180)">\n' +
                     '\t\t<path class="st0" d="M16,0L16,0c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16l0,0C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>\n' +
                     '\t\t<g>\n' +
                     '\t\t\t<path class="st1" d="M16,0c8.8,0,16,7.2,16,16c0,8.8-7.2,16-16,16S0,24.8,0,16C0,7.2,7.2,0,16,0z M16,31c8.3,0,15-6.7,15-15\n' +
@@ -213,7 +213,7 @@
         $('.produtos-carrossel').slick({
             infinite: true,
             slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToScroll: 1,
             prevArrow: '<svg class="carousel-prev" width="30" height="30" version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
                 '\t viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">\n' +
                 '<style type="text/css">\n' +
@@ -221,7 +221,7 @@
                 '\t.st1{fill:#B9B9B9;}\n' +
                 '</style>\n' +
                 '<g id="seta-vitrine-esquerda" transform="translate(-293 -1134)">\n' +
-                '\t<g id="Retângulo_310" transform="translate(293 1134)">\n' +
+                '\t<g id="Retï¿½ngulo_310" transform="translate(293 1134)">\n' +
                 '\t\t<g>\n' +
                 '\t\t\t<path class="st0" d="M16,0L16,0c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16l0,0C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>\n' +
                 '\t\t</g>\n' +
@@ -249,7 +249,7 @@
                 '\t.st1{fill:#B9B9B9;}\n' +
                 '</style>\n' +
                 '<g id="seta-vitrine-direita" transform="translate(-1595 -1134)">\n' +
-                '\t<g id="Retângulo_311" transform="translate(1627 1166) rotate(180)">\n' +
+                '\t<g id="Retï¿½ngulo_311" transform="translate(1627 1166) rotate(180)">\n' +
                 '\t\t<path class="st0" d="M16,0L16,0c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16l0,0C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>\n' +
                 '\t\t<g>\n' +
                 '\t\t\t<path class="st1" d="M16,0c8.8,0,16,7.2,16,16c0,8.8-7.2,16-16,16S0,24.8,0,16C0,7.2,7.2,0,16,0z M16,31c8.3,0,15-6.7,15-15\n' +

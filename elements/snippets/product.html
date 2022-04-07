@@ -1,4 +1,4 @@
-<div class="productlist listagem-item product product-item" itemscope
+<div class="productlist listagem-item product product-item p-2" itemscope
      itemtype="http://schema.org/Product">
     {% if product.ean %}
         <meta itemprop="gtin14" content="{{ product.ean }}">
@@ -26,11 +26,9 @@
                 {% set res_price = price - price_offer %}
                 {% set setby     = res_price / price * 100 %}
 
-                {# garante que o produto tenha a exibição da oferta se tiver no minimo 1% de desconto #}
-
+                {# garante que o produto tenha a exibiï¿½ï¿½o da oferta se tiver no minimo 1% de desconto #}
 
             {% endif %}
-
 
             {% if setby >= 1 %}
                 <div class="bandeiras-produto d-flex justify-content-center align-items-center bandeira-off">
@@ -60,7 +58,6 @@
             {% endif %}
         </a>
 
-
     </figure>
 
     <div class="productlist__info info-produto">
@@ -81,14 +78,14 @@
             {% element 'snippets/product-payment' {"product": product} %}
         {% endif %}
 
-
-
         {% if pages.current == 'catalog' %}
             {% element 'snippets/compare' {"product": product} %}
         {% endif %}
 
         <div class="productlist__actions">
-            <a href="{{ product.link }}" title="Ver detalhes do produto" class="productlist__actions-btn">
+            <a href="{{ product.link }}" title="Ver detalhes do produto" 
+            class="bg-primary rounded w-full p-2 text-white flex items-center 
+                transition-all justify-center hover:text-white hover:opacity-80">
                COMPRAR
             </a>
         </div>

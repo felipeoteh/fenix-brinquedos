@@ -15,7 +15,7 @@
     {{ tray.styles }}
 
     <!-- theme styles -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/old.bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/theme.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/custom.css', {dynamic: true}) }}" type="text/css">
@@ -29,8 +29,28 @@
     <!-- google tag manager -->
     {{ googleTagManager.header(pages.current, tagManagerData) }}
 
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						primary: '#002F7E',
+						secundary: "#DE9D29",
+					},
+                    fontFamily: {
+                        'balsamiq': ['"Balsamik Sans", "cursive"'],
+                    }
+				}
+			},
+            important: true
+		}
+	</script>
+
     {# Theme Virtualiti  #}
     <link rel="stylesheet" href="{{ asset('css/virtualiti.css') }}">
+
+    <link rel="icon" href="{{ asset('img/virtualiti/favicon-fenix.png') }}" type="image/x-icon" />
 
 </head>
 
@@ -55,16 +75,16 @@
 
             {% if pages.current == 'home' %}
 
-                <div class="bannerHomePrincipal">
+                <div class="bannerHomePrincipal max-w-screen-xl m-auto" >
                     <ul>
                         <li>
                             <a href="">
-                                <img src="{{ themePath }}img/virtualiti/banners/banner-full.jpg" alt="">
+                                <img src="{{ themePath }}img/virtualiti/banners/banner-full-2.png" alt="">
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="{{ themePath }}img/virtualiti/banners/banner-full.jpg" alt="">   
+                                <img src="{{ themePath }}img/virtualiti/banners/banner-full-2.png" alt="">   
                             </a>
                         </li>
                     </ul>
@@ -224,13 +244,12 @@
                 dots: true,
                 infinite: true,
                 speed: 300,
-                slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToShow: 3,
+                slidesToScroll: 1,
                 responsive: [
                     {
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 4,
                         slidesToScroll: 1,
                         infinite: true,
                         dots: true
@@ -240,7 +259,7 @@
                     breakpoint: 600,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2
+                        slidesToScroll: 1
                     }
                     },
                     {
@@ -252,79 +271,43 @@
                     }
                     }
                 ]
-                });
-
-            handCategoriesBox.slick({
-                dots: false,
-                arrows: false,
+            });
+      
+            var handVitrine2 = $(".produtos-carrossel-2");
+            handVitrine2.slick({
+                dots: true,
                 infinite: true,
                 speed: 300,
-                slidesToShow: 6,
+                slidesToShow: 3,
                 slidesToScroll: 1,
+                nextArrow: 'proximo',
+                prevArrow: 'anterior', 
                 responsive: [
                     {
                     breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 6,
-                            slidesToScroll: 1,
-                            infinite: true
-                        }
+                    settings: {
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
                     },
                     {
                     breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                            infinite: true
-                        }
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
                     },
                     {
                     breakpoint: 480,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                            arrows: true,
-                            infinite: true
-                        }
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                    }
                     }
                 ]
-                });
-
-            handMarcasBox.slick({
-                dots: false,
-                arrows: true,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                    breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 6,
-                            slidesToScroll: 1,
-                            infinite: true
-                        }
-                    },
-                    {
-                    breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                            infinite: true
-                        }
-                    },
-                    {
-                    breakpoint: 480,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                            arrows: true,
-                            infinite: true
-                        }
-                    }
-                ]
-            });        
+            });
 
         });
 

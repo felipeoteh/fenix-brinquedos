@@ -1,104 +1,71 @@
-<section class="bCategories">
-    <ul>
-        <li>
-            <a href="">
-                <img src="{{ themePath }}img/virtualiti/b-cate-1.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <img src="{{ themePath }}img/virtualiti/categories/cate-2.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <img src="{{ themePath }}img/virtualiti/categories/cate-3.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <img src="{{ themePath }}img/virtualiti/categories/cate-4.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <img src="{{ themePath }}img/virtualiti/categories/cate-5.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <img src="{{ themePath }}img/virtualiti/categories/cate-6.png" alt="">
-            </a>
-        </li>
-    </ul>
-</section>
 
 <!-- showcase one -->
-{% if settings.showcase_one == "featured" %}
-    {% set showcaseTitle = "Destaques" %}
+<section class="max-w-screen-xl m-auto flex flex-col">
 
- {% elseif settings.showcase_one == "new" %}
-    {% set showcaseTitle = "Lan&ccedil;amentos" %}
+    {% if settings.showcase_one == "featured" %}
+        {% set showcaseTitle = "Destaques" %}
 
- {% elseif settings.showcase_one == "free_shipping" %}
-    {% set showcaseTitle = "Frete Gr&aacute;tis" %}
+    {% elseif settings.showcase_one == "new" %}
+        {% set showcaseTitle = "Lan&ccedil;amentos" %}
 
- {% elseif settings.showcase_one == "promotion" %}
-    {% set showcaseTitle = "Promo&ccedil;&otilde;es" %}
+    {% elseif settings.showcase_one == "free_shipping" %}
+        {% set showcaseTitle = "Frete Gr&aacute;tis" %}
 
- {% elseif settings.showcase_one == "top_seller" %}
-    {% set showcaseTitle = "Mais Vendidos" %}
-{% endif %}
+    {% elseif settings.showcase_one == "promotion" %}
+        {% set showcaseTitle = "Promo&ccedil;&otilde;es" %}
 
-{% if showAvailable %}
-    {% if settings.showcase_one == "top_seller" %}
-    <div id="prognoos_popv1"></div>
-
-        {% set products = Products({
-            'filter': showAvailable,
-            'limit': limitProducts,
-            'categories': [53],
-            'order': {'quantity_sold': 'desc'}
-        }) %}
-
-    {% else %}
-        {% set products = Products({
-            'filter': [showAvailable, settings.showcase_one],
-            'categories': [53],
-            'limit': limitProducts,
-            'order': 'rand'
-        }) %}
+    {% elseif settings.showcase_one == "top_seller" %}
+        {% set showcaseTitle = "Mais Vendidos" %}
     {% endif %}
 
-{% else %}
-    {% if settings.showcase_one == "top_seller" %}
-    <div id="prognoos_popv1"></div>
+    {% if showAvailable %}
+        {% if settings.showcase_one == "top_seller" %}
+        <div id="prognoos_popv1"></div>
+            {% set products = Products({
+                'limit': limitProducts,
+                'categories': [1],
+                'order': {'quantity_sold': 'desc'}
+            }) %}
 
-        {% set products = Products({
-            'filter': available,
-            'limit': limitProducts,
-            'categories': [53],
-            'order': {'quantity_sold': 'desc'}
-        }) %}
+        {% else %}
+            {% set products = Products({
+                'categories': [1],
+                'limit': limitProducts,
+                'order': 'rand'
+            }) %}
+        {% endif %}
+
     {% else %}
-        {% set products = Products({
-            'filter': settings.showcase_one,
-            'limit': limitProducts,
-            'categories': [53],
-            'order': 'rand'
-        }) %}
-    {% endif %}
-{% endif %}
+        {% if settings.showcase_one == "top_seller" %}
+        <div id="prognoos_popv1"></div>
 
-{% element 'showcase' {
-    "products": products,
-    "showcaseTitle": showcaseTitle
-} %}
-</div>
-</div>
+            {% set products = Products({
+                'limit': limitProducts,
+                'categories': [1],
+                'order': {'quantity_sold': 'desc'}
+            }) %}
+        {% else %}
+            {% set products = Products({
+                'limit': limitProducts,
+                'categories': [1],
+                'order': 'rand',
+                "numberShowcase": 1,
+            }) %}
+        {% endif %}
+    {% endif %}
+
+    {% element 'showcase' {
+        "products": products,
+        "showcaseTitle": showcaseTitle,
+        "numberShowcase": 1,
+    } %}
+    </div>
+    </div>
+</section>
 
 <!-- vitrine dois -->
-<section class="maisVendidos">
+<section class="max-w-screen-xl m-auto flex flex-col">
+
     {% set products = Products({
         'limit': limitProducts,
         'order': 'rand'
@@ -106,99 +73,42 @@
 
     {% element 'showcase' {
         "products": products,
-        "showcaseTitle": "Mais Vendidos"
+        "showcaseTitle": "Promoções",
+        "numberShowcase": 2,
     } %}
+
 </section>
 
-<section class="gridDupla">
-    <ul>
+<section class="gridDupla max-w-screen-xl m-auto">
+    <ul class="justify-between">
         <li>
             <a href="">
-                <img src="{{ themePath }}img/virtualiti/mini-banner-1.png" alt="">
+                <img src="{{ themePath }}img/virtualiti/banners/mini-banner-1.png" alt="">
             </a>
         </li>
         <li>
             <a href="">
-                <img src="{{ themePath }}img/virtualiti/mini-banner-2.png" alt="">
+                <img src="{{ themePath }}img/virtualiti/banners/mini-banner-2.png" alt="">
             </a>
         </li>
     </ul>
 </section>
 
 <!-- vitrine tres -->
-{% set products = Products({
-    'limit': limitProducts,
-    'order': 'rand'
-}) %}
+<section class="gridDupla max-w-screen-xl m-auto">
 
-{% element 'showcase' {
-    "products": products,
-    "showcaseTitle": "Não pode faltar no enxoval!"
-} %}
+    {% set products = Products({
+        'limit': limitProducts,
+        'order': 'rand'
+    }) %}
 
-<!-- vitrine quatro -->
-{% set products = Products({
-    'limit': limitProducts,
-    'order': 'rand'
-}) %}
-
-{% element 'showcase' {
-    "products": products,
-    "showcaseTitle": "Promoções"
-} %}
-
-<section class="marcasHome">   
-
-    <h2 class="showcase__titulo">
-        Compre por Marcas
-    </h2>
-
-    <ul>
-        <li>
-            <a href="/">
-                <img src="{{ themePath }}img/virtualiti/marcas/marca-1.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="/">
-                <img src="{{ themePath }}img/virtualiti/marcas/marca-2.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="/">
-                <img src="{{ themePath }}img/virtualiti/marcas/marca-3.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="/">
-                <img src="{{ themePath }}img/virtualiti/marcas/marca-4.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="/">
-                <img src="{{ themePath }}img/virtualiti/marcas/marca-5.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="/">
-                <img src="{{ themePath }}img/virtualiti/marcas/marca-6.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="/">
-                <img src="{{ themePath }}img/virtualiti/marcas/marca-3.png" alt="">
-            </a>
-        </li>
-    </ul>
+    {% element 'showcase' {
+        "products": products,
+        "showcaseTitle": "Mais Vendidos",
+        "numberShowcase": 3,
+    } %}
 
 </section>
 
-<section class="section-insta">
 
-    <div class="title-insta">
-        SIGA-NOS 
-        <img src="{{ themePath }}img/virtualiti/instagram-plugin.svg" alt="">
-        <a href="#">@lojatalybaby</a>  
-    </div>
 
-</section>
