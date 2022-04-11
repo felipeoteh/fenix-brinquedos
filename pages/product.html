@@ -1,5 +1,5 @@
 {% if banner.title %}
-    <div class="banner banner-title mobile-off">
+    <div class="banner banner-title mobile-off hidden">
         {{ banner.title }}
     </div>
 {% endif %} 
@@ -9,23 +9,20 @@
     {% endif %}
 {% endfor %}
 
-
-
-<section id="product-container" class="produto-wrapper product-detail mt-4" itemscope itemtype="http://schema.org/Product">
+<section id="product-container" class="w-full max-w-screen-xl m-auto produto-wrapper product-detail mt-4" itemscope itemtype="http://schema.org/Product">
     {% element 'snippets/schema-product' {'product': product} %}
 
     <span id="span_erro_carrinho"></span>
-    <div class="row no-gutters">
-        <div class="col-12 py-1"> {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}</div>
-        <div class="col-10 offset-1 offset-md-0 col-md-5 col-galeria">
+    <div class="col-12 py-1"> {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}</div>
 
+    <div class="row no-gutters flex gap-4">
+        <div class="col-10 offset-1 offset-md-0 col-md-5 col-galeria">
 
             {% if product.images %}
 
                 <div id="visualBlock" class="product-gallery">
                     <div class="product-labels">
                         {% for discount in ProgressiveDiscounts %}
-
                             {% if discount.tag %}
                                 <span class="botao-commerce botao-lancamento botao-frete-desconto">
                         {{discount.tag}}
@@ -99,34 +96,92 @@
                     Marca: <strong> {{product.brand}}     </strong>
                 {% endif %}</span>
 
-                <span class="referencia">
+            <span class="referencia">
 
-            {% if product.reference %}
-                Referência: <strong> {{product.reference}}     </strong>
-            {% endif %}</span></div>
-            <div class="separador-produto"></div>
-            {% element 'snippets/discount' %}
+                {% if product.reference %}
+                    Referencia: <strong> {{product.reference}}     </strong>
+                {% endif %}</span></div>
+                <div class="separador-produto"></div>
+                <span class="tray-hide" data-logged-user="true">
+                {% element 'snippets/discount' %}
 
-            {#<p class="product-details">
-                {% if settings.show_product_stock %}
-                    <span>Estoque: <b>{{ product.stock }}</b></span>
+                {#<p class="product-details">
+                    {% if settings.show_product_stock %}
+                        <span>Estoque: <b>{{ product.stock }}</b></span>
+                    {% endif %}
+                    {{ productHelper.details() }}
+                    {{ productHelper.icons() }}
+                </p>#}
+                {# productHelper.bonus() #}
+
+                <!-- <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}"> -->
+                    {% if settings.cache_infopreco %}
+                    <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
+                        <div class="pricing">
+                            Carregando...
+                        </div>
+                    </div>
+                {% else %}
+                    {{ productHelper.pricing() }}
                 {% endif %}
-                {{ productHelper.details() }}
-                {{ productHelper.icons() }}
-            </p>#}
-            {# productHelper.bonus() #}
+
+
+                {% if product.available %}
+                {{ product.additional_information }}
+                {{ productHelper.gifts() }}
+                {{ productHelper.kit() }}
+
+                {% if not product.has_variation %}
+                        <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}">
+
+                            {% if not product.upon_request %}
+                                {% element 'snippets/botoes_qty' %}
+                                {{ productHelper.wishlist() }}
+
+                            {% endif %}
+
+                            <div class="shipping-result"></div>
+
+                        </form>
+                    {% else %}
+                        {#<button class="variacao-btn-scroll variacao-cor">
+                            Selecione as variaï¿½ï¿½es abaixo
+                            <i style="margin-left: 5px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </i>
+                        </button>#}
+                        <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}" class="variacao-outra">
+                            {{ productHelper.variants() }}
+                            {% element 'snippets/botoes_qty' %}
+                        </form>
+
+                    {% endif %}
+
+                    {% if product.additional_message %}
+                        <div class="mensagem_adicional">{{ product.additional_message }}</div>
+                    {% endif %}
+                {% endif %}
+
+                <div class="calc-frete col-md-12 pt-3 d-flex flex-column flex-sm-row align-items-start align-items-center">
+                    <div class="mr-3 calc-frete-txt ">Calcular seu frete:</div> {{ productHelper.shipping() }}
+                </div>
+
+            </span>
+
+            <span class="tray-hide" data-logged-user="false">
+                <div class="productlist__actions">
+                    <a href="{{ links.login }}" title="Ver detalhes do produto" 
+                    class="mt-[.9rem] bg-primary rounded w-full max-w-full p-2 text-white flex items-center 
+                        transition-all justify-center hover:text-white hover:bg-[#001334]">
+                        FaÃ§a Login para COMPRAR
+                    </a>
+                </div>
+            </span>
 
             </pre>
-            <!-- <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}"> -->
-            {% if settings.cache_infopreco %}
-                <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
-                    <div class="pricing">
-                        Carregando...
-                    </div>
-                </div>
-            {% else %}
-                {{ productHelper.pricing() }}
-            {% endif %}
+            
 
             <div class="pp-uwu-details">
                 <a href="#" class="open-details"> Ver mais detalhes</a>
@@ -139,55 +194,18 @@
                 </p>
             </div>
 
-            {% if product.available %}
-                {{ product.additional_information }}
-                {{ productHelper.gifts() }}
-                {{ productHelper.kit() }}
-
-                {% if not product.has_variation %}
-                    <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}">
-
-                        {% if not product.upon_request %}
-                            {% element 'snippets/botoes_qty' %}
-                            {{ productHelper.wishlist() }}
-
-                        {% endif %}
-
-                        <div class="shipping-result"></div>
-
-                    </form>
-                {% else %}
-                    {#<button class="variacao-btn-scroll variacao-cor">
-                        Selecione as variações abaixo
-                        <i style="margin-left: 5px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                        </i>
-                    </button>#}
-                    <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}" class="variacao-outra">
-                        {{ productHelper.variants() }}
-                        {% element 'snippets/botoes_qty' %}
-                    </form>
-
-                {% endif %}
-
-
-                {% if product.additional_message %}
-                    <div class="mensagem_adicional">{{ product.additional_message }}</div>
-                {% endif %}
-            {% endif %}
+            
 
             <ul class="row align-items-center mb-3 shipping-custom-css no-gutters">
 
-                <li class="calc-frete col-md-12 pt-3 d-flex flex-column flex-sm-row align-items-start align-items-center">
-                    <div class="mr-3 calc-frete-txt ">Calcular seu frete:</div> {{ productHelper.shipping() }}
-                </li>
+                
+
                 <li class="col-md-12 pt-1 mt-5 d-flex social-size justify-content-center justify-content-md-start">
                     Compartilhe nas Redes Sociais
                 </li>
                 <li class="col-md-12 pt-3 d-flex justify-content-center justify-content-md-start">
-                    {{ productHelper.social() }}</li>
+                    {{ productHelper.social() }}
+                </li>
             </ul>
             {% if settings.social_position == 1 %}
                 {# <div class="product-social d-flex align-items-center">
@@ -200,7 +218,7 @@
             {#<div class="secao-variacoes">
                 <div class="titulo-variacoes">
                     <div class="divisoria-variacoes"></div>
-                    SELECIONE SUAS VARIAÇÕES
+                    SELECIONE SUAS VARIAï¿½ï¿½ES
                 </div>
                 <div class="subtitulo-variacoes">Escolha o modelo e a quantidade que deseja e depois clique em <strong>COMPRAR</strong></div>
             </div>
@@ -215,10 +233,10 @@
 
 
 
-<section id="ProdBlock" class="product-tabs">
+<section id="ProdBlock" class="product-tabs w-full max-w-screen-xl m-auto">
     <a name="formaPagto"></a>
     <div id="ProdAbas" class="abasProduto tab-panel">
-        <ul class="clearfix flex-md-row">
+        <ul class="clearfix flex gap-4 flex-nowrap flex-row">
             {% for key, tab in productTabs %}
 
                 {% if tab.container_id %}
@@ -228,13 +246,12 @@
                             {% else %}
                                 <span> {{ tab.description }}</span>
                             {% endif %}
-
                         </a>
 
                     </li>
-                    {% if loop.index is not divisible by(2) %}
+                    <!-- {% if loop.index is not divisible by(2) %}
                         <li class="d-none d-md-list-item"><a><span>|</span></a></li>
-                    {% endif %}  {% endif %}
+                    {% endif %}  {% endif %} -->
             {% endfor %}
         </ul>
     </div>
@@ -288,7 +305,7 @@
 
 {% if product.related_products %}
     <div id="prognoos_lsi"></div>
-    <section class="products-related">
+    <section class="products-related w-full max-w-screen-xl m-auto">
         <div class="related-title-body">
             <h3 class="related-title">
                 <img class="titulo-img titulo-img--before" src="{{ asset('img/coracao-titulo-vitrine.svg') }}" alt="">

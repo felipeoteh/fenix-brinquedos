@@ -182,14 +182,25 @@ header .logo{
 .main_menu .main_menu__nivel-um{
   gap: 1rem;
   background: var(--primary);
-  margin-bottom: .5rem;
   justify-content: space-evenly;
+  max-width: 1280px;
+  border: none !important;
+}
+
+.main_menu .menu{
+  background: var(--primary);
+  margin-bottom: .4rem;
 }
 
 .main_menu .main_menu__nivel-um a{
   color: #fff;
   font-size: 15px;
   text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.listagem-item{
+  background: #F9F9F9;
 }
 
 .main_menu .main_menu__nivel-um a:hover{
@@ -302,6 +313,7 @@ footer:before{
   text-transform: uppercase;
   margin-bottom: 1rem;
   font-size: .9rem;
+  font-family: "Balsamiq Sans", "cursive";
 }
 
 .part-b .about img{
@@ -351,15 +363,16 @@ footer:before{
 
 .part-d{
   padding: 1rem;
-  background: #fff;
   margin-top: 1rem;
+  border-top: thin solid #F2F2F2;
+  border-bottom: thin solid #F2F2F2;
 }
 
 .poweredBy{
   display: flex;
   gap: .5rem;
   font-size: .8rem;
-  color: var(--primary);
+  color: #BFBFBF;
   align-items: center;
   white-space: nowrap;
 }
@@ -371,7 +384,7 @@ footer:before{
 .poweredBy #NavLogoTray .logotray-message a{
   width: 3.1rem;
   height: 2rem;
-  background: url("https://images.tcdn.com.br/files/752887/themes/69/img/virtualiti/logo-tray.svg");
+  background: url("https://images.tcdn.com.br/files/1091184/themes/7/img/logo-tray-2.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -661,7 +674,7 @@ footer:before{
   font-size: .8rem !important;
   display: flex !important;
   gap: .5rem !important;
-  text-transform: uppercase !important;
+  text-transform: initial !important;
   padding-left: 3rem !important;
   margin-bottom: 0 !important;
   margin-top: 1rem;
@@ -927,6 +940,7 @@ footer:before{
 
 .catalog-header__result-text{
   font-size: .8rem;
+  font-family: "Lato", sans-serif;
 }
 
 .catalog-content > .col-md-3{
@@ -939,10 +953,6 @@ footer:before{
 
 .filterMobileOpen{
   display: none;
-}
-
-.page-product #corpo{
-  padding: 0 3rem;
 }
 
 .page-product #corpo .breadcrumb{

@@ -1,4 +1,4 @@
-<div class="productlist listagem-item product product-item p-2" itemscope
+<div class="productlist listagem-item product product-item p-2 m-2 transition-all itemscope
      itemtype="http://schema.org/Product">
     {% if product.ean %}
         <meta itemprop="gtin14" content="{{ product.ean }}">
@@ -17,7 +17,7 @@
     <meta itemprop="productID" content="{{ product.id }}"/>
     <meta itemprop="sku" content="{{ product.id }}"/>
 
-    <figure class="productlist__produto-img-body">
+    <figure class="productlist__produto-img-body h-auto mb-3">
         <div class="bandeiras-diferentes bandeiras-diferentes--home pt-1 pb-3">
             {% set price_offer = product.price_offer %}
 
@@ -68,27 +68,42 @@
 
         {% element 'snippets/ranking' {"ranking": product.ranking } %}
 
-        {% if settings.cache_infopreco %}
+        <span class="tray-hide" data-logged-user="true">
+
+            {% if settings.cache_infopreco %}
             <div data-module="pricing" data-snippet="snippets/product-payment" data-product-id="{{ product.id }}">
                 <div class="productlist__info-pricing">
                     Carregando...
                 </div>
             </div>
-        {% else %}
-            {% element 'snippets/product-payment' {"product": product} %}
-        {% endif %}
+            {% else %}
+                {% element 'snippets/product-payment' {"product": product} %}
+            {% endif %}
 
-        {% if pages.current == 'catalog' %}
-            {% element 'snippets/compare' {"product": product} %}
-        {% endif %}
+            {% if pages.current == 'catalog' %}
+                {% element 'snippets/compare' {"product": product} %}
+            {% endif %}
 
-        <div class="productlist__actions">
-            <a href="{{ product.link }}" title="Ver detalhes do produto" 
-            class="bg-primary rounded w-full p-2 text-white flex items-center 
-                transition-all justify-center hover:text-white hover:opacity-80">
-               COMPRAR
-            </a>
-        </div>
+            <div class="productlist__actions">
+                <a href="{{ product.link }}" title="Ver detalhes do produto" 
+                class="bg-primary rounded w-full max-w-full p-2 text-white flex items-center 
+                    transition-all justify-center hover:text-white hover:bg-[#001334]">
+                   COMPRAR
+                </a>
+            </div>
+        </span>
+
+        <span class="tray-hide" data-logged-user="false">
+            <div class="productlist__actions">
+                <a href="{{ links.login }}" title="Ver detalhes do produto" 
+                class="mt-[.9rem] bg-primary rounded w-full max-w-full p-2 text-white flex items-center 
+                    transition-all justify-center hover:text-white hover:bg-[#001334]">
+                    Faça Login para COMPRAR
+                </a>
+            </div>
+        </span>
+
+        
     </div><!-- - product-description -->
 
 

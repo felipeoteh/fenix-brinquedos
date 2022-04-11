@@ -2526,11 +2526,11 @@ h6 {
 
 .page-catalog .sidebar .filter .filter__title,
 .page-search .sidebar .filter .filter__title {
-    color: var(--secundary);
+    color: var(--primary);
     font-size: 15px;
     font-weight: 700;
     margin-top: 2.5rem;
-    text-transform: uppercase
+    text-transform: initial;
 }
 
 .page-catalog .sidebar .filter .filter__label,
@@ -2712,7 +2712,6 @@ h6 {
 .page-search .catalog-content {
     margin: 0 auto;
     width: 100%;
-    padding: 0rem 3rem;
     margin-bottom: 2rem;
 }
 
@@ -2985,25 +2984,23 @@ h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-transform: uppercase;
+    text-transform: initial;
     font-size: 1.4rem;
     color: #707070;
     margin: .5rem 0;
     font-weight: 700;
-    font-family: Quicksand, sans-serif
 }
 
 .page-catalog .system-filter .catalogo-form-filtros label.filtro-ordem #select_ordem,
 .page-search .system-filter .catalogo-form-filtros label.filtro-ordem #select_ordem {
-    width: 50%;
-    height: 26px;
-    font-family: Quicksand, sans-serif;
+    width: 180px;
+    height: 35px;
     background-color: #fff;
-    color: #707070;
+    color: #6D6E5C;
     padding: 0 8px;
     font-weight: 400;
-    border-radius: 100px;
-    border: 1px solid #939292;
+    border-radius: .25rem;
+    border: 1px solid #E1E1E1;
     font-size: 1.35rem;
     margin-top: 0;
     margin-left: 5px
@@ -3015,7 +3012,6 @@ h6 {
     float: none;
     margin-right: 15px;
     vertical-align: top;
-    font-family: Quicksand, sans-serif;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1
@@ -9873,21 +9869,19 @@ h6 {
 .breadcrumb .icon-breadcrumb,
 .breadcrumb a {
     color: #9c9c9c;
-    font-family: Quicksand, sans-serif;
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.2rem
 }
 
 .breadcrumb-item {
-    font-family: Quicksand, sans-serif;
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.2rem
 }
 
 .breadcrumb-item:last-child a {
-    color: #c2a26f
+    color: var(--secundary);
 }
 
 .icon-breadcrumb:before {
@@ -9898,7 +9892,6 @@ h6 {
 .carrinho {
     width: 100%;
     height: 40px;
-    font-family: Quicksand, sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
     line-height: 1;
@@ -11618,10 +11611,10 @@ html.menu-open .backdrop-icon {
 .listagem-item .product-price {
     color: #414042;
     display: block;
-    margin-bottom: 5px;
     position: relative;
     z-index: 1;
-    margin-top: 25px;
+    margin-top: .5rem;
+    margin-bottom: .6rem;
     font-family: Quicksand, sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
@@ -11960,23 +11953,21 @@ html.menu-open .backdrop-icon {
     color: #a2a2a2
 }
 
-.new-smart-filter {
-    padding: 20px;
-    border: 1px solid #d8d8d8;
-    border-radius: 5px
-}
-
 .new-smart-filter .filter .filter__button {
-    background-color: #72d0e9;
+    background-color: var(--secundary);
     font-weight: 700;
     color: #fff;
     text-transform: uppercase;
     font-size: 16px;
-    margin-top: 2.5rem;
-    border-radius: 100px;
     width: 100%;
     max-width: 210px;
-    height: 40px
+    border-radius: .25rem;
+    margin-top: 1rem;
+    transition: all ease .3s;
+}
+
+.new-smart-filter .filter .filter__button:hover{
+    opacity: .80;
 }
 
 .new-smart-filter .filter .filter__button:active,

@@ -1,4 +1,4 @@
-<div class="catalog-header">
+<div class="catalog-header w-full max-w-screen-xl m-auto">
 
     {% if banner.title %}
         <div class="banner banner-title ">
@@ -40,9 +40,9 @@
 
 {% if products|length > 0 %}
 
-    <div class="catalog-content row">
+    <div class="catalog-content row w-full max-w-screen-xl m-auto flex flex-wrap gap-4">
         {% if settings.enable_filter %}
-            <div class="col-md-3">
+            <div class="col-md-3 w-[215px]">
                 {% element 'sidebar-left' %}
             </div>
         {% endif %}

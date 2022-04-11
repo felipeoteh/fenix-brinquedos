@@ -92,8 +92,15 @@
                     <li>
                         <img src="{{ themePath }}img/virtualiti/topo-login.svg" alt="">
                         <p class="text-primary ">
-                            <b>Ola Lojista!</b>
-                            <a class="text-primary" href="">Login/Cadastro</a> 
+                            <span class="tray-hide" data-logged-user="true">
+                                <b>Olá <span data-customer="name"></span>!</b><br/>
+                                <a class="text-primary" href="{{ links.logout }}">Sair</a>
+                              </span>
+                            <span class="tray-hide" data-logged-user="false">
+                                <b>Olá Logista!</b><br/>
+                                <a class="text-primary" href="{{ links.login }}">Login</a> / 
+                                <a class="text-primary" href="{{ links.login }}">Cadastro</a>
+                            </span>
                         </p>
                         <!-- <ul>
                             <li><a href="#">Entrar</a></li>

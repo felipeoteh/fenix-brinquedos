@@ -5,6 +5,7 @@
 
     <!-- tray charset -->
     {{ html.charset() }}
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,7 +40,7 @@
 						secundary: "#DE9D29",
 					},
                     fontFamily: {
-                        'balsamiq': ['"Balsamik Sans", "cursive"'],
+                        'balsamiq': ['"Balsamiq Sans", "cursive"'],
                     }
 				}
 			},
@@ -275,36 +276,37 @@
       
             var handVitrine2 = $(".produtos-carrossel-2");
             handVitrine2.slick({
-                dots: true,
+                dots: false,
+                arrows: true,
                 infinite: true,
                 speed: 300,
                 slidesToShow: 3,
-                slidesToScroll: 1,
-                nextArrow: 'proximo',
-                prevArrow: 'anterior', 
+                slidesToScroll: 1, 
+                prevArrow: '<img class="cursor-pointer w-8 h-8 absolute top-[calc(50%-1rem)] z-10" src="https://images.tcdn.com.br/files/1091184/themes/7/img/seta-esquerda.png"/>',
+                nextArrow: '<img class="cursor-pointer w-8 h-8 absolute right-0 top-[calc(50%-1rem)] z-10" src="https://images.tcdn.com.br/files/1091184/themes/7/img/seta-direita.png"/>',
                 responsive: [
                     {
                     breakpoint: 1024,
-                    settings: {
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true
-                    }
+                        settings: {
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
                     },
                     {
                     breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
                     },
                     {
                     breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false,
-                    }
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false,
+                        }
                     }
                 ]
             });
