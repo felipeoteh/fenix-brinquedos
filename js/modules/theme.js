@@ -214,74 +214,32 @@
             infinite: true,
             slidesToShow: 4,
             slidesToScroll: 1,
-            prevArrow: '<svg class="carousel-prev" width="30" height="30" version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
-                '\t viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">\n' +
-                '<style type="text/css">\n' +
-                '\t.st0{fill:none;}\n' +
-                '\t.st1{fill:#B9B9B9;}\n' +
-                '</style>\n' +
-                '<g id="seta-vitrine-esquerda" transform="translate(-293 -1134)">\n' +
-                '\t<g id="Ret�ngulo_310" transform="translate(293 1134)">\n' +
-                '\t\t<g>\n' +
-                '\t\t\t<path class="st0" d="M16,0L16,0c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16l0,0C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>\n' +
-                '\t\t</g>\n' +
-                '\t\t<g>\n' +
-                '\t\t\t<path class="st1" d="M16,32C7.2,32,0,24.8,0,16C0,7.2,7.2,0,16,0s16,7.2,16,16C32,24.8,24.8,32,16,32z M16,1C7.7,1,1,7.7,1,16\n' +
-                '\t\t\t\ts6.7,15,15,15c8.3,0,15-6.7,15-15S24.3,1,16,1z"/>\n' +
-                '\t\t</g>\n' +
-                '\t</g>\n' +
-                '\t<g id="direita" transform="translate(304.843 1143)">\n' +
-                '\t\t<g id="right-arrow_1_" transform="translate(8.315 14.153) rotate(180)">\n' +
-                '\t\t\t<g id="Grupo_317" transform="translate(0)">\n' +
-                '\t\t\t\t<g id="Caminho_273">\n' +
-                '\t\t\t\t\t<path class="st1" d="M8.1,6.5L1.8,0.2C1.5-0.1,1-0.1,0.7,0.2L0.2,0.7c-0.3,0.3-0.3,0.8,0,1.1l5.3,5.3l-5.3,5.3\n' +
-                '\t\t\t\t\t\tc-0.3,0.3-0.3,0.8,0,1.1c0,0,0,0,0,0l0.5,0.5c0.3,0.3,0.8,0.3,1.1,0l6.3-6.3C8.4,7.3,8.4,6.8,8.1,6.5L8.1,6.5z"/>\n' +
-                '\t\t\t\t</g>\n' +
-                '\t\t\t</g>\n' +
-                '\t\t</g>\n' +
-                '\t</g>\n' +
-                '</g>\n' +
-                '</svg>',
-            nextArrow: '<svg class="carousel-next" width="30" height="30" version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
-                '\t viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">\n' +
-                '<style type="text/css">\n' +
-                '\t.st0{fill:none;}\n' +
-                '\t.st1{fill:#B9B9B9;}\n' +
-                '</style>\n' +
-                '<g id="seta-vitrine-direita" transform="translate(-1595 -1134)">\n' +
-                '\t<g id="Ret�ngulo_311" transform="translate(1627 1166) rotate(180)">\n' +
-                '\t\t<path class="st0" d="M16,0L16,0c8.8,0,16,7.2,16,16l0,0c0,8.8-7.2,16-16,16l0,0C7.2,32,0,24.8,0,16l0,0C0,7.2,7.2,0,16,0z"/>\n' +
-                '\t\t<g>\n' +
-                '\t\t\t<path class="st1" d="M16,0c8.8,0,16,7.2,16,16c0,8.8-7.2,16-16,16S0,24.8,0,16C0,7.2,7.2,0,16,0z M16,31c8.3,0,15-6.7,15-15\n' +
-                '\t\t\t\tS24.3,1,16,1C7.7,1,1,7.7,1,16S7.7,31,16,31z"/>\n' +
-                '\t\t</g>\n' +
-                '\t</g>\n' +
-                '\t<g id="direita" transform="translate(1615.157 1157) rotate(180)">\n' +
-                '\t\t<g id="right-arrow_1_" transform="translate(8.315 14.153) rotate(180)">\n' +
-                '\t\t\t<g id="Grupo_317" transform="translate(0)">\n' +
-                '\t\t\t\t<path id="Caminho_273" class="st1" d="M8.1,6.5L1.8,0.2C1.5-0.1,1-0.1,0.7,0.2L0.2,0.7c-0.3,0.3-0.3,0.8,0,1.1l5.3,5.3l-5.3,5.3\n' +
-                '\t\t\t\t\tc-0.3,0.3-0.3,0.8,0,1.1c0,0,0,0,0,0l0.5,0.5c0.3,0.3,0.8,0.3,1.1,0l6.3-6.3C8.4,7.3,8.4,6.8,8.1,6.5L8.1,6.5z"/>\n' +
-                '\t\t\t</g>\n' +
-                '\t\t</g>\n' +
-                '\t</g>\n' +
-                '</g>\n' +
-                '</svg>',
+            arrows: true,
+            prevArrow: '<img class="cursor-pointer w-8 h-8 absolute top-[calc(50%-1rem)] z-10" src="https://images.tcdn.com.br/files/1091184/themes/7/img/seta-esquerda.png"/>',
+            nextArrow: '<img class="cursor-pointer w-8 h-8 absolute right-0 top-[calc(50%-1rem)] z-10" src="https://images.tcdn.com.br/files/1091184/themes/7/img/seta-direita.png"/>',
             responsive: [
-                            {
-                                breakpoint: 992,
-                                settings: {
-                                    slidesToShow: 3,
-                                    slidesToScroll: 3
-                                }
-                            },
-                            {
-                                breakpoint: 768,
-                                settings: {
-                                    slidesToShow: 1,
-                                    slidesToScroll: 1
-                                }
-                            }
-                        ]
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    }
+            ]
         });
     }
 

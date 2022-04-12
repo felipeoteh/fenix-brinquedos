@@ -1,7 +1,7 @@
 <div class="topBar bg-secundary">
-    <div class="text-primary flex justify-between items-center w-full max-w-screen-xl m-auto p-2 text-sm">
+    <div class="text-primary flex justify-center md:justify-between items-center w-full max-w-screen-xl m-auto p-2 text-sm">
         <p>Bem-vindos a Fenix Brinquedos!</p>
-        <ul class="flex gap-2 items-center justify-between">
+        <ul class="hidden md:flex gap-2 items-center justify-between">
             <li>Meus Pedidos</li>
             <li>Minha Conta</li>
         </ul>
@@ -10,19 +10,19 @@
 </div>
 <header class="px-2 py-4">
 
-    <div class="w-full max-w-screen-xl m-auto flex items-center justify-between">
+    <div class="w-full max-w-screen-xl m-auto flex items-center justify-between flex-wrap md:flex-nowrap">
 
-        <div class="menuMobile">
-            <img src="{{ themePath }}img/virtualiti/menu-mobile.svg" alt="">
+        <div class="menuMobile order-1">
+            <img src="{{ themePath }}img/menu-mobile-fenix.png" alt="">
         </div>
 
-        <div class="logo">
+        <div class="m-4 logo order-2 md:order-none">
             <a class="logo" href="{{ store.url }}">
                 <img src="{{ themePath }}img/virtualiti/logo-fenix-brinquedos.png" alt="">
             </a>
         </div>
 
-        <div class="search flex-1 max-w-[578px]">
+        <div class="mt-4 mb-2 search flex-1 max-w-[578px] order-4 md:order-none">
             <form class="search-header flex-1 px-4" action="{{ links.search }}" method="get" data-search="suggestion">
                 <input type="hidden" name="loja" value="{{ store.id }}">
                 <input class="input-search md:bg-[#f1f1f1] rounded p-2 placeholder:font-normal flex flex-1 border border-[#f1f1f1]" 
@@ -40,7 +40,7 @@
             </form>
         </div>
 
-        <div class="blockB">
+        <div class="blockB order-3 md:order-none">
             <div class="attendance">
                 <ul>
                     <li>
@@ -116,7 +116,7 @@
                 </ul>
             </div>
 
-            <div class="cart">
+            <div class="cart left-[-1rem]">
                 <div class="cart-header">
                     <img class="icon" src="{{ themePath }}img/virtualiti/cart-topo.svg" alt="icon">
                     <span class="number" data-cart="amount"></span>
@@ -128,13 +128,21 @@
 
 </header>
 
-<div class="menuBox ">
-    <a href="/" class="myAccountMobile">
-        <img src="{{ themePath }}img/virtualiti/topo-minhaconta.svg" alt="">
-        MINHA CONTA
-    </a>
+<div class="menuBox">
+    <p class="text-white p-4 bg-primary flex md:hidden gap-2 items-center">
+        <img src="{{ themePath }}img/virtualiti/topo-login.svg" alt="">
+        <span class="tray-hide" data-logged-user="true">
+            <b>Olá <span data-customer="name"></span>!</b> / 
+            <a class="text-primary" href="{{ links.logout }}">Sair</a>
+          </span>
+        <span class="tray-hide" data-logged-user="false">
+            <b>Olá Logista!</b> 
+            <a class="text-white" href="{{ links.login }}">Login</a> / 
+            <a class="text-white" href="{{ links.login }}">Cadastro</a>
+        </span>
+    </p>
 
-    <div class="main_menu d-none d-md-flex">
+    <div class="hidden md:flex main_menu d-none d-md-flex">
         <div class="container px-0">
             <div class="wrapper main_menu__body menu-principal">
                 {% element 'snippets/menu' %}
@@ -145,41 +153,6 @@
     <div class="boxMenuMobile">
         {% element 'snippets/menu' %}
     </div>
-
-    <ul class="attendanceMobile">
-        <li class="title">Entre em Contato</li>
-        <li>
-            <svg id="popup_telefone" xmlns="http://www.w3.org/2000/svg" width="13.93" height="13.93" viewBox="0 0 13.93 13.93">
-                <g id="Grupo_373" data-name="Grupo 373" transform="translate(0)">
-                  <path id="Caminho_169" data-name="Caminho 169" d="M10.6,54.015a.976.976,0,0,0-1.475,0c-.345.342-.69.684-1.029,1.032a.2.2,0,0,1-.284.052c-.223-.122-.461-.22-.675-.354A10.7,10.7,0,0,1,4.552,52.4a6.112,6.112,0,0,1-.925-1.481.212.212,0,0,1,.052-.272c.345-.333.681-.675,1.02-1.017a.98.98,0,0,0,0-1.51c-.27-.272-.539-.539-.809-.812s-.554-.559-.835-.835a.982.982,0,0,0-1.475,0C1.23,46.815.9,47.165.543,47.5a1.68,1.68,0,0,0-.528,1.133A4.8,4.8,0,0,0,.387,50.7a12.559,12.559,0,0,0,2.229,3.713,13.8,13.8,0,0,0,4.568,3.574,6.607,6.607,0,0,0,2.531.736,1.855,1.855,0,0,0,1.591-.606c.3-.33.629-.632.942-.948a.986.986,0,0,0,.006-1.5Q11.428,54.84,10.6,54.015Z" transform="translate(-0.006 -44.8)" fill="#ce3176"/>
-                  <path id="Caminho_170" data-name="Caminho 170" d="M241,100.122l1.07-.183A4.8,4.8,0,0,0,238,96l-.151,1.075A3.711,3.711,0,0,1,241,100.122Z" transform="translate(-230.959 -93.217)" fill="#ce3176"/>
-                  <path id="Caminho_171" data-name="Caminho 171" d="M247.427,2.255A7.887,7.887,0,0,0,242.9,0l-.151,1.075a6.882,6.882,0,0,1,5.824,5.644l1.07-.183A7.946,7.946,0,0,0,247.427,2.255Z" transform="translate(-235.717)" fill="#ce3176"/>
-                </g>
-            </svg>
-            <p>(21) 3281-6433</p>
-        </li>
-        <li>
-            <img src="{{ themePath }}img/virtualiti/icone_whats.svg" alt="">
-            <p>(21) 99608-4165</p>
-        </li>
-        <li>
-            <img src="{{ themePath }}img/virtualiti/rodape-email.svg" alt="">
-            <p>contato@talybaby.com.br</p>
-        </li>
-        <li class="title">
-            Siga-nos
-        </li>
-        <li class="followUsHeader">
-            <a href="#">
-                <svg id="popup_facebook" xmlns="http://www.w3.org/2000/svg" width="9.386" height="20.334" viewBox="0 0 9.386 20.334">
-                    <path id="Caminho_152" data-name="Caminho 152" d="M63.635,103.816h4.094V93.563h2.857l.3-3.434H67.729V88.174c0-.81.163-1.129.946-1.129h2.216V83.482H68.055c-3.047,0-4.42,1.343-4.42,3.911V90.13H61.5v3.476h2.13Z" transform="translate(-61.505 -83.482)" fill="#ce3176"/>
-                </svg>
-            </a>
-            <a href="#">
-                <img src="{{ themePath }}img/virtualiti/iconInstagram.svg" alt="Icone Instagram">
-            </a>
-        </li>
-    </ul>
 
     <div class="menuMobile btFechar">
         <img src="{{ themePath }}img/virtualiti/bt-fechar.svg" alt="">

@@ -40,9 +40,9 @@
 
 {% if products|length > 0 %}
 
-    <div class="catalog-content row w-full max-w-screen-xl m-auto flex flex-wrap gap-4">
+    <div class="catalog-content row w-full max-w-screen-xl m-auto flex flex-col md:flex-row flex-wrap gap-4">
         {% if settings.enable_filter %}
-            <div class="col-md-3 w-[215px]">
+            <div class="col-md-3 md:w-[215px]">
                 {% element 'sidebar-left' %}
             </div>
         {% endif %}

@@ -352,11 +352,16 @@ html .botao-commerce:hover,
 html .botao-commerce:link,
 html .news.implantation .news-botao,
 html .remove-bg .botao-comprar {
-    background: #72d0e9 !important;
+    background: var(--primary) !important;
     height: 50px;
     border: none;
-    border-radius: 100px;
-    color: #fff
+    border-radius: .25rem;
+    color: #fff;
+    transition: all ease .3s;
+}
+
+html .botao-commerce:hover{
+    opacity: .80;
 }
 
 html .botao-commerce .botao-commerce-img,
@@ -5277,7 +5282,8 @@ h6 {
     float: left;
     margin-right: 3%;
     min-height: 360px;
-    width: 48.5%
+    width: 48.5%;
+    border-radius: .25rem;
 }
 
 @media screen and (min-width:1200px) {
@@ -5365,7 +5371,9 @@ h6 {
     display: block;
     margin: 5px 0 30px;
     padding: 6px 10px;
-    width: 100% !important
+    width: 100% !important;
+    border-radius: .25rem;
+
 }
 
 .page-login fieldset {
@@ -5410,7 +5418,7 @@ h6 {
 
 .page-login #listagemProdutos .container {
     box-shadow: none;
-    padding: 30px 50px 20px 20px;
+    padding: 2rem;
     background-color: transparent
 }
 
@@ -6258,7 +6266,6 @@ h6 {
 
 .page-product .product-detail .col-infos #preco .PrecoPrincipal {
     display: inline;
-    margin-left: 10px
 }
 
 .page-product .col-infos .metadados {
@@ -6283,16 +6290,16 @@ h6 {
 }
 
 .page-product .col-infos .bandeiras-produto.bandeira-off {
-    background-image: url(../img/selo-porcentagem.png);
-    background-size: 67px 28px;
+    background: var(--primary);
     background-repeat: no-repeat;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: .85rem;
     text-align: center;
     padding: 3px 24px 5px 8px;
     font-weight: 700;
     vertical-align: middle;
-    height: 18px
+    height: auto;
+    border-radius: .25rem;
 }
 
 .page-product .col-infos .bandeiras-produto.bandeira-free-shipping {
@@ -6592,9 +6599,9 @@ h6 {
 
 .page-product .product-gallery #foto_a {
     display: block !important;
-    border-top: 1px solid #f1f1f1;
     border-bottom: none
 }
+
 
 .page-product .product-gallery #foto_a a {
     color: #000;
@@ -6967,7 +6974,6 @@ h6 {
 
 .page-product #preco #produto_preco {
     color: #222;
-    font-family: Quicksand, sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
     line-height: 1.6rem
@@ -6987,7 +6993,6 @@ h6 {
 .page-product #preco .color-tone-2 {
     color: var(--secundary);
     height: 45px;
-    font-family: Quicksand, sans-serif;
     font-size: 0;
     font-weight: 700;
     line-height: 4.5rem
@@ -7000,7 +7005,6 @@ h6 {
 
 .page-product #preco .color-tone-2.txt-por::before {
     content: 'Por';
-    font-family: Quicksand, sans-serif;
     font-size: 28px;
     font-weight: 700;
     line-height: 4.5rem
@@ -7009,7 +7013,6 @@ h6 {
 @media screen and (max-width:767px) {
     .page-product #preco .color-tone-2 {
         text-align: center;
-        font-family: Quicksand, sans-serif;
         font-size: 0;
         font-weight: 700;
         line-height: 1.5;
@@ -7018,9 +7021,7 @@ h6 {
 }
 
 .page-product #preco .PrecoPrincipal {
-    color: #ed6bbc;
     height: 45px;
-    font-family: Quicksand, sans-serif;
     font-size: 28px;
     font-weight: 700;
     line-height: 1.5
@@ -7098,7 +7099,6 @@ h6 {
 
 .page-product .text-quantidade {
     color: #222;
-    font-family: Quicksand, sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
     line-height: 1.6rem
@@ -7109,12 +7109,11 @@ h6 {
 }
 
 .page-product .texto_variacao h2 {
-    font-family: Quicksand, sans-serif;
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1;
-    text-transform: uppercase;
-    color: #6D6E5C
+    text-transform: initial;
+    color: #222222;
 }
 
 .page-product .texto_variacao span {
@@ -7134,13 +7133,15 @@ h6 {
     float: left;
     margin: 0 5px 5px 0;
     text-align: center;
-    height: 38px;
+    height: auto;
     min-width: 38px;
     width: auto;
     background: #fff;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    border-radius: .25rem;
+    transition: all ease .3s;
 }
 
 .page-product .lista_cor_variacao li div,
@@ -7154,16 +7155,17 @@ h6 {
 .page-product .lista_cor_variacao li img.cor_selecionada,
 .page-product .lista_cor_variacao2 li div.cor_selecionada,
 .page-product .lista_cor_variacao2 li img.cor_selecionada {
-    background-color: #006c9b;
+    background-color: var(--primary);
     color: #fff;
-    border: 1px solid #393939 !important
+    border: 1px solid #393939 !important;
+    border-radius: .25rem;
 }
 
 .page-product .lista_cor_variacao li img,
 .page-product .lista_cor_variacao2 li img {
     /* max-height: 28px; */
     border: 1px solid #f1f1f1;
-    border-radius: 5rem;
+    border-radius: .25rem;
 }
 
 .page-product .lista_cor_variacao li div,
@@ -7172,11 +7174,11 @@ h6 {
     vertical-align: middle;
     height: 100%;
     width: 100%;
-    padding: 10px;
-    font-family: Quicksand, sans-serif;
-    font-size: 1.4rem;
+    padding: 8px 20px;
     font-weight: 700;
-    line-height: 1.6rem
+    border: thin solid #f1f1f1 !important;
+    border-radius: .25rem;
+    transition: all ease .3s;
 }
 
 .page-product #quantidade {
@@ -7211,12 +7213,11 @@ h6 {
     float: left;
     margin-right: 1px;
     color: #222;
-    border-radius: 100px;
+    border-radius: .25rem;
     text-align: center;
     width: 66px;
     height: 40px;
-    font-family: Quicksand, sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.8rem
 }
@@ -7235,7 +7236,6 @@ h6 {
 }
 
 .page-product .wrapper-btn-buy .quant-txt {
-    font-family: Quicksand, sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 19px;
@@ -7256,7 +7256,7 @@ h6 {
     height: 43px;
     display: flex;
     align-items: center;
-    border-radius: 100px
+    border-radius: .25rem;
 }
 
 @media screen and (max-width:767px) {
@@ -7273,18 +7273,18 @@ h6 {
     padding: 20px 0;
     text-align: center;
     width: 52px;
-    font-family: Quicksand, sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    line-height: 1.8rem
+    line-height: 1.8rem;
+    border-radius: .25rem;
 }
 
 .page-product .product-quantity>div {
-    overflow: hidden
+    overflow: hidden;
 }
 
 .page-product .product-quantity>div.productQtyIncrease {
-    display: none
+    display: none;
 }
 
 .page-product .product-quantity>div.productQtyIncrease>span {
@@ -7346,7 +7346,8 @@ h6 {
 .page-product .wrapper-btn-buy {
     margin-bottom: 15px;
     display: flex;
-    align-items: center
+    align-items: center;
+    margin-top: 1rem;
 }
 
 @media screen and (max-width:767px) {
@@ -7393,13 +7394,17 @@ h6 {
     text-align: center;
     width: 100%;
     max-width: 350px;
-    border-radius: 100px;
+    border-radius: .25rem;
     margin-left: 20px;
-    font-family: Quicksand, sans-serif;
     font-size: 20px;
     font-weight: 500;
     line-height: 1.4;
     outline: none;
+    transition: all ease .3s;
+}
+
+.page-product .product-buy-button:hover{
+    opacity: .80;
 }
 
 @media screen and (max-width:767px) {
@@ -7468,12 +7473,12 @@ h6 {
 }
 
 .page-product .calc-frete-txt {
-    font-family: Quicksand, sans-serif;
     font-size: 12px;
     font-weight: 500;
     line-height: 1;
     color: #444;
-    text-transform: initial
+    text-transform: initial;
+    margin-bottom: .5rem;
 }
 
 @media screen and (max-width:767px) {
@@ -7512,9 +7517,8 @@ h6 {
     margin: 0 1px;
     padding: 0;
     color: #414042;
-    font-family: Quicksand, sans-serif;
-    border-radius: 100px;
-    text-align: center
+    border-radius: .25rem;
+    text-align: center;
 }
 
 .page-product #cepbox [name=cep1] {
@@ -7542,7 +7546,7 @@ h6 {
     font-size: 0;
     margin-left: 10px;
     font-weight: 700;
-    border-radius: 100px;
+    border-radius: .25rem;
     height: 30px;
     display: flex;
     align-items: center;
@@ -7693,7 +7697,9 @@ h6 {
     border: 1px solid #393939;
     height: 40px;
     margin: 0 5px;
-    padding: 10px
+    padding: 10px;
+    border-radius: .25rem;
+    margin-bottom: .5rem;
 }
 
 @media screen and (max-width:767px) {
@@ -7710,9 +7716,11 @@ h6 {
     justify-content: center;
     align-items: center;
     order: 3;
-    border-radius: 30rem;
+    border-radius: .25rem;
     text-decoration: none;
     transition: var(--transition);
+    max-width: 170px;
+    margin: 0 auto;
 }
 
 .page-product .blocoSucesso{
@@ -7845,7 +7853,7 @@ h6 {
     color: var(--secundary) !important;
     opacity: .5;
     font-size: 16px;
-    text-transform: uppercase;
+    text-transform: initial;
     background-color: #fff;
     transition: var(--transition);
 }
@@ -7992,7 +8000,9 @@ h6 {
 .page-product #mensagem_coment {
     height: 200px;
     margin-top: 3px;
-    width: 400px !important
+    width: 400px !important;
+    border: thin solid #f1f1f1;
+    border-radius: .25rem;
 }
 
 @media screen and (max-width:767px) {
@@ -11708,7 +11718,8 @@ html.menu-open .backdrop-icon {
     background-image: url(../img/selo-porcentagem.png);
     background-size: 60px 28px;
     background-repeat: no-repeat;
-    padding-right: 11px
+    padding-right: 11px;
+    display: none;
 }
 
 @media screen and (max-width:767px) {
@@ -11723,7 +11734,8 @@ html.menu-open .backdrop-icon {
 
 .listagem-item .bandeiras-produto .bandeira-promocao {
     vertical-align: middle;
-    font-weight: 700
+    font-weight: 700;
+    display: none;
 }
 
 .store-rating {

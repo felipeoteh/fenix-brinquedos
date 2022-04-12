@@ -11,7 +11,7 @@
 
         {% if numberShowcase == 1 %}
         
-            <div class="bannerVitrine1 w-[300px]">
+            <div class="bannerVitrine1 w-[300px] hidden md:block">
                 <img src="{{ themePath }}img/virtualiti/banners/banner-vitrine-1.png" alt="">
             </div>
 
@@ -27,7 +27,7 @@
         
         {% if numberShowcase == 2 %}
 
-            <ul class="produtos-carrossel-2 row showcase__caroussel flex-1 max-w-[968px]">
+            <ul class="produtos-carrossel-2 row showcase__caroussel flex-1 max-w-full md:max-w-[968px]">
                 {% for product in products %}
                     <li class="col-sm-3 showcase__caroussel-item">
                         {% element 'snippets/product' {"product": product} %}
@@ -35,7 +35,7 @@
                 {% endfor %}
             </ul>
 
-            <div class="bannerVitrine2 w-[300px]">
+            <div class="bannerVitrine2 w-[300px] hidden md:block">
                 <img src="{{ themePath }}img/virtualiti/banners/banner-vitrine-2.png" alt="">
             </div>
             

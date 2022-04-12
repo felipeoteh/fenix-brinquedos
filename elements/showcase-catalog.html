@@ -93,7 +93,7 @@
 
                     <div class="d-none d-md-block col-md-5 cat-name text-center text-md-left">
 
-{#                       {% element 'snippets/breadcrumb' %}#}
+<!-- {#                       {% element 'snippets/breadcrumb' %}#} -->
                         <div class="row no-gutters catalog-header__result">
                             <div class="d-block catalog-header__result-text">
                                 {{ paginate.counter('Resultado <strong>{:count} produto(s)</strong> em <strong>{:pages} p&aacute;gina(s)</strong>') }}
@@ -131,7 +131,7 @@
         <ul class="row">
             {% for product in products %}
                 {% set ranking = product.ranking %}
-                <li class="product  col-12  col-md-4 my-5 w-1/3">
+                <li class="product my-5 w-1/2 md:w-1/3">
                     {% element 'snippets/product' {"product": product} %}
                 </li>
             {% endfor %}
