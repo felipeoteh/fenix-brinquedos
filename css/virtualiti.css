@@ -970,7 +970,61 @@ footer:before{
   margin-top: initial;
 }
 
+.productBox{
+  display: flex;
+}
+
+.abasProducts{
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.loginMobile{
+  display: none;
+}
+
+.headerBox .logo{
+  order: 1;
+}
+
+.headerBox .blockB{
+  order: 3;
+}
+
+.headerBox .search{
+  order: 2;
+}
+
+
 @media(max-width: 768px){
+
+  .main_menu{
+    display: none;
+  }
+
+  .headerBox .logo{
+    order: 2;
+  }
+  
+  .headerBox .blockB{
+    order: 3;
+  }
+  
+  .headerBox .search{
+    order: 4;
+  }
+
+  .loginMobile{
+    display: flex;
+  }
+
+  .productBox{
+    flex-direction: column;
+  }
+
+  .abasProducts{
+    flex-direction: column;
+  }
 
   .page-product #produto_nao_disp #nao_disp > label input{
     max-width: 120px;

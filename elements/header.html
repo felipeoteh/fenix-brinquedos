@@ -10,19 +10,19 @@
 </div>
 <header class="px-2 py-4">
 
-    <div class="w-full max-w-screen-xl m-auto flex items-center justify-between flex-wrap md:flex-nowrap">
+    <div class="headerBox w-full max-w-screen-xl m-auto flex items-center justify-between flex-wrap md:flex-nowrap">
 
-        <div class="menuMobile order-1">
+        <div class="menuMobile ">
             <img src="{{ themePath }}img/menu-mobile-fenix.png" alt="">
         </div>
 
-        <div class="m-4 logo order-2 md:order-none">
+        <div class="m-4 logo">
             <a class="logo" href="{{ store.url }}">
                 <img src="{{ themePath }}img/virtualiti/logo-fenix-brinquedos.png" alt="">
             </a>
         </div>
 
-        <div class="mt-4 mb-2 search flex-1 max-w-[578px] order-4 md:order-none">
+        <div class="mt-4 mb-2 search flex-1 max-w-[578px] ">
             <form class="search-header flex-1 px-4" action="{{ links.search }}" method="get" data-search="suggestion">
                 <input type="hidden" name="loja" value="{{ store.id }}">
                 <input class="input-search md:bg-[#f1f1f1] rounded p-2 placeholder:font-normal flex flex-1 border border-[#f1f1f1]" 
@@ -40,7 +40,7 @@
             </form>
         </div>
 
-        <div class="blockB order-3 md:order-none">
+        <div class="blockB ">
             <div class="attendance">
                 <ul>
                     <li>
@@ -129,7 +129,7 @@
 </header>
 
 <div class="menuBox">
-    <p class="text-white p-4 bg-primary flex md:hidden gap-2 items-center">
+    <p class="text-white p-4 bg-primary loginMobile gap-2 items-center">
         <img src="{{ themePath }}img/virtualiti/topo-login.svg" alt="">
         <span class="tray-hide" data-logged-user="true">
             <b>Olá <span data-customer="name"></span>!</b> / 
@@ -142,7 +142,7 @@
         </span>
     </p>
 
-    <div class="hidden md:flex main_menu d-none d-md-flex">
+    <div class="main_menu d-none d-md-flex">
         <div class="container px-0">
             <div class="wrapper main_menu__body menu-principal">
                 {% element 'snippets/menu' %}

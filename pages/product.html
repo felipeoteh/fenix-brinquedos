@@ -15,7 +15,7 @@
     <span id="span_erro_carrinho"></span>
     <div class="col-12 py-1"> {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}</div>
 
-    <div class="row no-gutters md:flex gap-4">
+    <div class="row no-gutters productBox gap-4">
         <div class="col-10 offset-1 offset-md-0 col-md-5 col-galeria">
 
             {% if product.images %}
@@ -126,7 +126,6 @@
                     {{ productHelper.pricing() }}
                 {% endif %}
 
-
                 {% if product.available %}
                 {{ product.additional_information }}
                 {{ productHelper.gifts() }}
@@ -230,7 +229,7 @@
 <section id="ProdBlock" class="product-tabs w-full max-w-screen-xl m-auto mt-8">
     <a name="formaPagto"></a>
     <div id="ProdAbas" class="abasProduto tab-panel">
-        <ul class="clearfix flex flex-col justify-center md:justify-start md:flex-col md:gap-4 flex-nowrap md:flex-row">
+        <ul class="clearfix flex abasProducts">
             {% for key, tab in productTabs %}
 
                 {% if tab.container_id %}

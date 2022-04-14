@@ -7813,7 +7813,6 @@ h6 {
     margin: 0 auto;
     flex-wrap: wrap;
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
 }
 
